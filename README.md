@@ -7,6 +7,7 @@ Integrantes: **Ignacio Guerrero, Ignacio González Dapello, Rodrigo Lema, Facundo
 
 Proyecto: __*Sistema Integral de Gestión para Centros de Salud (SIGCeS)*__
 
+### Descripción
 En una primera etapa, el proyecto pretende crear un Sistema de Gestión que permita incorporar nuevos pacientes, reconocer pacientes existentes,
 que estos puedan autogestionar sus turnos, y que el médico pueda acceder a su historia clínica.
 Todo esto, a través de la línea de comandos.
@@ -16,3 +17,5 @@ Los métodos son sencillos. Algunas de las limitaciones de la aplicación son:
 las historias clínicas.
 - El usuario de la aplicación es el propio DNI.
 - El campo clave, en los archivos .CSV, **no está encriptado**.
+
+Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto, no es apto para entornos profesionales.
