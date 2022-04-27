@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Admin extends Usuario{
 
+    private static String idAdmin;
     private static int clave;
 
     public Admin(String nombre,

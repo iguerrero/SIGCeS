@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Commit inicial.">
-      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/HistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651079995360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Modificaciones al README.md">
+      <created>1651081254849</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651081254849</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,7 +101,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Commit inicial." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit inicial." />
+    <MESSAGE value="Modificaciones al README.md" />
+    <MESSAGE value="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase." />
+    <option name="LAST_COMMIT_MESSAGE" value="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

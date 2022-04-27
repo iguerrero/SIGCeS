@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Medico extends Usuario{
 
+    private static String idMedico;
     private static int clave;
     private static String matriculaProv;
     private static String matriculaNac;
