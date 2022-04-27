@@ -1,0 +1,18 @@
+# Sistema Integral de Gestión para Centros de Salud (SIGCeS)
+
+Por alumnos de la cátedra **Programación Orientada a Objetos** de la **Universidad Empresarial Siglo 21**. <br>
+Año: **2022**.<br>
+
+Integrantes: **Ignacio Guerrero, Ignacio González Dapello, Rodrigo Lema, Facundo Peral** y **Alberto Aguirre**.
+
+Proyecto: __*Sistema Integral de Gestión para Centros de Salud (SIGCeS)*__
+
+En una primera etapa, el proyecto pretende crear un Sistema de Gestión que permita incorporar nuevos pacientes, reconocer pacientes existentes,
+que estos puedan autogestionar sus turnos, y que el médico pueda acceder a su historia clínica.
+Todo esto, a través de la línea de comandos.
+
+Los métodos son sencillos. Algunas de las limitaciones de la aplicación son:
+- En lugar de una base de datos SQL, se utiliza una planilla de cálculos CSV, y archivos JSON para alojar
+las historias clínicas.
+- El usuario de la aplicación es el propio DNI.
+- El campo clave, en los archivos .CSV, **no está encriptado**.
