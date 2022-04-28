@@ -33,15 +33,15 @@ public class Paciente extends Usuario{
             this.sexo = sexo;
     }
 
-    public String getIdPaciente() {
+    public String obtenerIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(String idPaciente) {
+    public void establecerIdPaciente(String idPaciente) {
         this.idPaciente = idPaciente;
     }
 
-    public static int getEdad(LocalDate fechaNac) {
+    public static int calcularEdad(LocalDate fechaNac) {
             return Period.between(fechaNac, LocalDate.now()).getYears();
     }
 }

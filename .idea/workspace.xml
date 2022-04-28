@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase.">
-      <change afterPath="$PROJECT_DIR$/Consignas_TP2.md" afterDir="false" />
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Un montón de cambios...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/HistoriaClinica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
@@ -43,20 +42,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;exceleditor.install&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lord Vader/IdeaProjects/SIGCeS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "exceleditor.install": "true",
+    "last_opened_file_path": "C:/Users/Lord Vader/IdeaProjects/SIGCeS",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "Errors"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SIGCeS" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="edu.grupo9.sigces.Main" />
@@ -96,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651097247724</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Un montón de cambios...">
+      <created>1651114338048</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651114338048</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,7 +121,8 @@
     <MESSAGE value="Commit inicial." />
     <MESSAGE value="Modificaciones al README.md" />
     <MESSAGE value="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase." />
-    <option name="LAST_COMMIT_MESSAGE" value="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase." />
+    <MESSAGE value="Un montón de cambios..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Un montón de cambios..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

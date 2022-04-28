@@ -74,14 +74,8 @@ public class Main {
             System.out.print("Elija una opci\u00F3n: ");
             int seleccion = scanner.nextInt();
             switch (seleccion) {
-                case 1 -> {
-                    Medico usuarioMed = buscarMedico();
-                    menuMedico(usuarioMed);
-                }
-                case 2 -> {
-                    Admin usuarioAdmin = buscarAdmin();
-                    menuAdmin(usuarioAdmin);
-                }
+                case 1 -> menuMedico(buscarMedico());
+                case 2 -> menuAdmin(buscarAdmin());
                 default -> {
                     System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
                     try {
@@ -200,8 +194,8 @@ public class Main {
 
     public static void menuMedico(Medico medico) {
         clearScreen();
-        String tratamiento = String.valueOf(medico.getSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
-        System.out.println(tratamiento + medico.getApellido() + "\n" +
+        String tratamiento = String.valueOf(medico.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
+        System.out.println(tratamiento + medico.obtenerApellido() + "\n" +
                            "Seleccione una de las siguientes opciones: \n" +
                            "1. Ver mi agenda \n" +
                            "2. Ver Historia Cl\u00EDnica");
@@ -227,8 +221,8 @@ public class Main {
 
     private static void menuAdmin(Admin admin) {
         clearScreen();
-        String tratamiento = String.valueOf(admin.getSexo()).equals("M")? "Bienvenido, ": "Bienvenida, ";
-        System.out.println(tratamiento + admin.getNombre() + "\n" +
+        String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M")? "Bienvenido, ": "Bienvenida, ";
+        System.out.println(tratamiento + admin.obtenerNombre() + "\n" +
                 "Seleccione una de las siguientes opciones: \n" +
                 "1. Gestionar Turnos \n" +
                 "2. Ver Historia Cl\u00EDnica" +

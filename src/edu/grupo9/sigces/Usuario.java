@@ -42,65 +42,65 @@ public abstract class Usuario {
     /*
      * getters y setters de la clase
      */
-    public void setNombre(String nombre) {
+    public void establecerNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getNombre() {
+    public String obtenerNombre() {
         return nombre;
     }
-    public void setApellido(String apellido) {
+    public void establecerApellido(String apellido) {
         this.apellido = apellido;
     }
 
-    public String getApellido() {
+    public String obtenerApellido() {
         return apellido;
     }
 
-    public void setDni(int dni) {
+    public void establecerDni(int dni) {
         this.dni = dni;
     }
 
-    public int getDni() {
+    public int obtenerDni() {
         return dni;
     }
 
-    public void setDomicilio(String domicilio) {
+    public void establecerDomicilio(String domicilio) {
         this.domicilio = domicilio;
     }
 
-    public String getDomicilio() {
+    public String obtenerDomicilio() {
         return domicilio;
     }
 
-    public void setTelefono(String telefono) {
+    public void establecerTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public String getTelefono() {
+    public String obtenerTelefono() {
         return telefono;
     }
 
-    public void setEmail(String email) {
+    public void establecerEmail(String email) {
         this.email = email;
     }
 
-    public String getEmail() {
+    public String obtenerEmail() {
         return email;
     }
 
-    public void setFechaNac(LocalDate fechaNac) {
+    public void establecerFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 
-    public LocalDate getFechaNac() {
+    public LocalDate obtenerFechaNac() {
         return fechaNac;
     }
 
-    public void setSexo(char sexo) {
+    public void establecerSexo(char sexo) {
         this.sexo = sexo;
     }
 
-    public char getSexo() {
+    public char obtenerSexo() {
         return sexo;
     }
 }

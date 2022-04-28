@@ -7,11 +7,11 @@ public class Agenda {
     public Agenda() {
     }
 
-    public static String getIdAgenda() {
+    public static String obtenerIdAgenda() {
         return idAgenda;
     }
 
-    public static void setIdAgenda(String idAgenda) {
+    public static void establecerIdAgenda(String idAgenda) {
         Agenda.idAgenda = idAgenda;
     }
 }

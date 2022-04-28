@@ -41,11 +41,11 @@ public class Admin extends Usuario{
 //    public static void gestionarTurnos(idAgenda) {} // usuario administrativo
 
 
-    public int getClave() {
+    public int obtenerClave() {
         return clave;
     }
 
-    public void setClave(int clave) {
+    public void establecerClave(int clave) {
         this.clave = clave;
     }
 }

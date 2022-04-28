@@ -1,7 +1,6 @@
 package edu.grupo9.sigces;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Medico extends Usuario{
 
@@ -45,29 +44,29 @@ public class Medico extends Usuario{
     /*
      * getters y setters de la clase
      */
-    public int getClave() { return clave; }
+    public int obtenerClave() { return clave; }
 
-    public void setClave(int clave) { this.clave = clave; }
+    public void establecerClave(int clave) { this.clave = clave; }
 
-    public String getMatriculaProv() { return matriculaProv; }
+    public String obtenerMatriculaProv() { return matriculaProv; }
 
-    public void setMatriculaProv(String matriculaProv) {
+    public void establecerMatriculaProv(String matriculaProv) {
         this.matriculaProv = matriculaProv;
     }
 
-    public String getMatriculaNac() {
+    public String obtenerMatriculaNac() {
         return matriculaNac;
     }
 
-    public void setMatriculaNac(String matriculaNac) {
+    public void establecerMatriculaNac(String matriculaNac) {
         this.matriculaNac = matriculaNac;
     }
 
-    public String getEspecialidades() {
+    public String obtenerEspecialidades() {
         return especialidades;
     }
 
-    public void setEspecialidades(String especialidades) {
+    public void establecerEspecialidades(String especialidades) {
         this.especialidades = especialidades;
     }
 
