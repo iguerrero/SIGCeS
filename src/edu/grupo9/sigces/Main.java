@@ -3,8 +3,9 @@
  *  de la cátedra de <b>Programación Orientada a Objetos</b> de la carrera de Lic. en Informática
  *  de la <b>Universidad Empresarial Siglo XXI</b>.
  * @author Ignacio Guerrero
- * @version 0.1 alpha
+ * @version 0.1 TP2
  * @date 27/04/2022
+ * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
  */
 package edu.grupo9.sigces;
 
@@ -229,8 +230,10 @@ public class Main {
         String tratamiento = String.valueOf(admin.getSexo()).equals("M")? "Bienvenido, ": "Bienvenida, ";
         System.out.println(tratamiento + admin.getNombre() + "\n" +
                 "Seleccione una de las siguientes opciones: \n" +
-                "1. Ver mi agenda \n" +
-                "2. Ver Historia Cl\u00EDnica");
+                "1. Gestionar Turnos \n" +
+                "2. Ver Historia Cl\u00EDnica" +
+                "3. Gestionar M\u00E9dicos" +
+                "4. Gestionar Administradores");
     }
 
     public static void main(String[] args) {

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Medico extends Usuario{
 
-    private static String idMedico;
-    private static int clave;
-    private static String matriculaProv;
-    private static String matriculaNac;
-    private static String especialidades;
+    private String idMedico;
+    private int clave;
+    private String matriculaProv;
+    private String matriculaNac;
+    private String especialidades;
 
     /**
      * Constructor por defecto de la clase.
@@ -28,19 +28,18 @@ public class Medico extends Usuario{
                   String matriculaProv,
                   String matriculaNac,
                   String especialidades) {
-        setNombre(nombre);
-        setApellido(apellido);
-        setDni(dni);
-        setClave(clave);
-        setDomicilio(domicilio);
-        setTelefono(telefono);
-        setEmail(email);
-        setFechaNac(fechaNac);
-        setSexo(sexo);
-        setMatriculaProv(matriculaProv);
-        setMatriculaNac(matriculaNac);
-        setEspecialidades(especialidades);
-
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.clave = clave;
+        this.domicilio = domicilio;
+        this.telefono = telefono;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
+        this.matriculaProv = matriculaProv;
+        this.matriculaNac = matriculaNac;
+        this.especialidades = especialidades;
     }
 
     /*
@@ -48,28 +47,28 @@ public class Medico extends Usuario{
      */
     public int getClave() { return clave; }
 
-    public static void setClave(int clave) { Medico.clave = clave; }
+    public void setClave(int clave) { this.clave = clave; }
 
     public String getMatriculaProv() { return matriculaProv; }
 
-    public static void setMatriculaProv(String matriculaProv) {
-        Medico.matriculaProv = matriculaProv;
+    public void setMatriculaProv(String matriculaProv) {
+        this.matriculaProv = matriculaProv;
     }
 
     public String getMatriculaNac() {
         return matriculaNac;
     }
 
-    public static void setMatriculaNac(String matriculaNac) {
-        Medico.matriculaNac = matriculaNac;
+    public void setMatriculaNac(String matriculaNac) {
+        this.matriculaNac = matriculaNac;
     }
 
     public String getEspecialidades() {
         return especialidades;
     }
 
-    public static void setEspecialidades(String especialidades) {
-        Medico.especialidades = especialidades;
+    public void setEspecialidades(String especialidades) {
+        this.especialidades = especialidades;
     }
 
 //    public void buscarPaciente() {}

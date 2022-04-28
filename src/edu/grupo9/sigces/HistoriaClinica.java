@@ -6,20 +6,15 @@ public class HistoriaClinica {
     private String idHistoriaClinica;
     private String idPaciente;
 
-    public HistoriaClinica() {
-    }
+    public HistoriaClinica() { }
 
-    public String getIdHistoriaClinica() {
-        return idHistoriaClinica;
-    }
+    public String getIdHistoriaClinica() { return idHistoriaClinica; }
 
     public void setIdHistoriaClinica(String idHistoriaClinica) {
         this.idHistoriaClinica = idHistoriaClinica;
     }
 
-    public String getIdPaciente() {
-        return idPaciente;
-    }
+    public String getIdPaciente() { return idPaciente; }
 
     public void setIdPaciente(String idPaciente) {
         this.idPaciente = idPaciente;

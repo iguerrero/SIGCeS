@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Admin extends Usuario{
 
     private static String idAdmin;
-    private static int clave;
+    private int clave;
 
     public Admin(String nombre,
                  String apellido,
@@ -19,15 +19,15 @@ public class Admin extends Usuario{
                  String s,
                  String s1,
                  String s2) {
-        setNombre(nombre);
-        setApellido(apellido);
-        setDni(dni);
-        setClave(clave);
-        setDomicilio(domicilio);
-        setTelefono(telefono);
-        setEmail(email);
-        setFechaNac(fechaNac);
-        setSexo(sexo);
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.clave = clave;
+        this.domicilio = domicilio;
+        this.telefono = telefono;
+        this.email = email;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
     }
 
 //    public void Admin() {}
@@ -41,13 +41,11 @@ public class Admin extends Usuario{
 //    public static void gestionarTurnos(idAgenda) {} // usuario administrativo
 
 
-
-
-    public static int getClave() {
+    public int getClave() {
         return clave;
     }
 
     public void setClave(int clave) {
-        Admin.clave = clave;
+        this.clave = clave;
     }
 }

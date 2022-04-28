@@ -19,3 +19,10 @@ las historias clínicas.
 - El campo clave, en los archivos .CSV, **no está encriptado**.
 
 Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto, no es apto para entornos profesionales.
+
+### Acerca del TP N°2
+
+En lo que respecta a la __Consigna__, 
+
+- Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
+- Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.
