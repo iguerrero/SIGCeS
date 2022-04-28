@@ -1,11 +1,7 @@
-/**
- *  El presente programa es un prototipo y es parte de los trabajos prácticos
+/*  El presente programa es un prototipo y es parte de los trabajos prácticos
  *  de la cátedra de <b>Programación Orientada a Objetos</b> de la carrera de Lic. en Informática
  *  de la <b>Universidad Empresarial Siglo XXI</b>.
- * @author Ignacio Guerrero
- * @version 0.1 TP2
- * @date 27/04/2022
- * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
+ * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>
  */
 package edu.grupo9.sigces;
 
@@ -19,10 +15,16 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * @author Ignacio Guerrero
+ * @version 0.1 TP2
+ * @date 27/04/2022
+ * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
+ */
 public class Main {
 
-    final static String fileMedicos = "medicos.csv";
-    final static String fileAdmins = "admins.csv";
+    final static String planillaMedicos = "medicos.csv";
+    final static String planillaAdmins = "admins.csv";
 
     /**
      * Borra la pantalla para mejorar la visualización.
@@ -175,7 +177,7 @@ public class Main {
      * @return nuevo Medico.
      */
     public static Medico buscarMedico() {
-        ArrayList<String> datosMedico = login(fileMedicos);
+        ArrayList<String> datosMedico = login(planillaMedicos);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         return new Medico(datosMedico.get(1),
                 datosMedico.get(2),
@@ -197,12 +199,12 @@ public class Main {
         String tratamiento = String.valueOf(medico.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
         System.out.println(tratamiento + medico.obtenerApellido() + "\n" +
                            "Seleccione una de las siguientes opciones: \n" +
-                           "1. Ver mi agenda \n" +
+                           "1. Ver mi agenda semanal \n" +
                            "2. Ver Historia Cl\u00EDnica");
     }
 
     public static Admin buscarAdmin() {
-        ArrayList<String> datosAdmin = login(fileAdmins);
+        ArrayList<String> datosAdmin = login(planillaAdmins);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         return new Admin(datosAdmin.get(1),
                 datosAdmin.get(2),

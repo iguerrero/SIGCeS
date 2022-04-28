@@ -69,16 +69,25 @@ public class Medico extends Usuario{
     public void establecerEspecialidades(String especialidades) {
         this.especialidades = especialidades;
     }
-
-//    public void buscarPaciente() {}
-//    public void verAgenda() {}
-//    public void buscarHistoriaClinica() {}
-//    public void nuevaHistoriaClinica() {}
-
-//    public static void verTurnosHoy(idAgenda) {} // usuario médico
-//    public static void verPaciente(nombre, apellido) {}// usuario médico
-//    public static void verHistoriaClinica(nombre, apellido) {} // usuario médico
-//    public static void cargarNuevoDiagnostico() {} // usuario médico
-
+    /**
+     * TODO
+     */
+    public void verPaciente() {  }
+    /**
+     * TODO
+     */
+    public void gestionarAgenda() {  }
+    /**
+     * TODO
+     */
+    public void verHistoriaClinica() {  }
+    /**
+     * TODO
+     */
+    public void cargarDiagnóstico() {  }
+    /**
+     * TODO
+     */
+    public static void verTurnosHoy(String idMedico) {  }
 
 }
