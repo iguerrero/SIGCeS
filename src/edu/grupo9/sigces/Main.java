@@ -18,7 +18,7 @@ import java.util.Scanner;
 /**
  * @author Ignacio Guerrero
  * @version 0.1 TP2
- * @date 27/04/2022
+ * @Date: 27/04/2022 <br>
  * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
  */
 public class Main {
@@ -147,16 +147,16 @@ public class Main {
     }
 
     /**
-     * Abre el archivo .CSV correspondiente a file y busca los datos coincidentes con dni y clave.
+     * Abre el archivo .CSV correspondiente a planilla y busca los datos coincidentes con dni y clave.
      * @param dni int
      * @param clave int
-     * @param file String
+     * @param planilla String
      * @return ArrayList values or null.
      * @throws IOException Archivo no encontrado.
      */
-    public static ArrayList<String> leerCSV(int dni, int clave, String file) throws IOException {
-        // Abre file y lee cada línea.
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+    public static ArrayList<String> leerCSV(int dni, int clave, String planilla) throws IOException {
+        // Abre planilla y lee cada línea.
+        try (BufferedReader br = new BufferedReader(new FileReader(planilla))) {
             String s;
             // Lee línea por línea
             while ((s = br.readLine()) != null) {
@@ -223,13 +223,30 @@ public class Main {
 
     private static void menuAdmin(Admin admin) {
         clearScreen();
-        String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M")? "Bienvenido, ": "Bienvenida, ";
+        String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M") ? "Bienvenido, " : "Bienvenida, ";
         System.out.println(tratamiento + admin.obtenerNombre() + "\n" +
                 "Seleccione una de las siguientes opciones: \n" +
-                "1. Gestionar Turnos \n" +
-                "2. Ver Historia Cl\u00EDnica" +
-                "3. Gestionar M\u00E9dicos" +
-                "4. Gestionar Administradores");
+                "\033[31m1. Gestionar Turnos  \033[0m \n" +
+                "\033[31m2. Ver Historia Cl\u00EDnica \033[0m \n" +
+                "3. Gestionar M\u00E9dicos \n" +
+                "\033[31m4. Gestionar Administradores \033[0m");
+        Scanner scanner = new Scanner(System.in);
+        int seleccion = scanner.nextInt();
+        switch (seleccion) {
+            case 1 -> Admin.gestionarTurnos();
+            case 2 -> Admin.gestionarPacientes();
+            case 3 -> Admin.gestionarMedicos();
+            case 4 -> Admin.gestionarAdmins();
+            default -> {
+                System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                clearScreen();
+            }
+        }
     }
 
     public static void main(String[] args) {

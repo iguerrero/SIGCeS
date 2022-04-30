@@ -26,3 +26,4 @@ En lo que respecta a la __Consigna__,
 
 - Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
 - Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.
+- Las opciones de menú en rojo aún no fueron implementadas.
