@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Castellanicé los getters y setters, acorde con la bibliografía.">
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medicos.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment=" Cargué nuevamente datos en la planilla medicos.csv" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,24 +32,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "exceleditor.install": "true",
-    "last_opened_file_path": "C:/Users/Lord Vader/IdeaProjects/SIGCeS",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;exceleditor.install&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lord Vader/IdeaProjects/SIGCeS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SIGCeS" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="edu.grupo9.sigces.Main" />
@@ -124,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651335551641</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=" Cargué nuevamente datos en la planilla medicos.csv">
+      <created>1652453959943</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652453959943</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,7 +145,8 @@
     <MESSAGE value="Algunas modificaciones menores. Parámetros faltantes en Turno, Agenda e HistoriaClinica, así como los Constructores y los Getters y Setters de cada clase." />
     <MESSAGE value="Un montón de cambios..." />
     <MESSAGE value="Castellanicé los getters y setters, acorde con la bibliografía." />
-    <option name="LAST_COMMIT_MESSAGE" value="Castellanicé los getters y setters, acorde con la bibliografía." />
+    <MESSAGE value=" Cargué nuevamente datos en la planilla medicos.csv" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Cargué nuevamente datos en la planilla medicos.csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
