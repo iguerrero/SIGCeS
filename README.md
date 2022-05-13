@@ -3,7 +3,7 @@
 Por alumnos de la cátedra **Programación Orientada a Objetos** de la **Universidad Empresarial Siglo 21**. <br>
 Año: **2022**.<br>
 
-Integrantes: **Ignacio Guerrero, Ignacio González Dapello, Rodrigo Lema, Facundo Peral** y **Alberto Aguirre**.
+Integrantes del grupo: **Ignacio Guerrero, Ignacio González Dapello, Rodrigo Lema, Facundo Peral** y **Alberto Aguirre**.
 
 Proyecto: __*Sistema Integral de Gestión para Centros de Salud (SIGCeS)*__
 
@@ -20,7 +20,7 @@ las historias clínicas.
 
 Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto, no es apto para entornos profesionales.
 
-### Acerca del TP N°2
+### Acerca del TP N° 2
 
 En lo que respecta a la __Consigna__, 
 
