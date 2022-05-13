@@ -3,13 +3,17 @@ package edu.grupo9.sigces;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+enum dias {
+    LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+}
+
 public class Agenda {
 
     private static String idAgenda;
     private int diaSemana;
     private LocalDate fechaInicio;
     private LocalDate fechaVigencia;
-    private int duraciónIntevalo;
+    private int duracionIntevalo;
     private LocalDate horaInicio1;
     private LocalDate horaFin1;
     private LocalDate horaInicio2;
@@ -51,12 +55,12 @@ public class Agenda {
         this.fechaVigencia = fechaVigencia;
     }
 
-    public int obtenerDuraciónIntevalo() {
-        return duraciónIntevalo;
+    public int obtenerDuracionIntevalo() {
+        return duracionIntevalo;
     }
 
-    public void establecerDuraciónIntevalo(int duraciónIntevalo) {
-        this.duraciónIntevalo = duraciónIntevalo;
+    public void establecerDuracionIntevalo(int duracionIntevalo) {
+        this.duracionIntevalo = duracionIntevalo;
     }
 
     public LocalDate obtenerHoraInicio1() {

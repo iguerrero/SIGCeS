@@ -1,14 +1,13 @@
 package edu.grupo9.sigces;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Admin extends Usuario{
+public class Admin extends Usuario implements VarsGlobales {
 
     private static String idAdmin;
     private int clave;
@@ -49,6 +48,8 @@ public class Admin extends Usuario{
     }
 
     /* METODOS DE CLASE */
+
+    /* MÉDICOS */
     public static void gestionarMedicos() {
         System.out.println("""
                 ¿Qué desea hacer? \s
@@ -56,7 +57,84 @@ public class Admin extends Usuario{
                 2. Modificar Datos \s
                 3. Eliminar Médico \s
                 4. Gestionar Agenda""");
+        switch (Main.seleccion()){
+            case 1 -> cargarNuevoMedico();
+        }
     }
+
+    public static void cargarNuevoMedico() {
+        System.out.println("Por favor, ingrese los datos del nuevo Médico.");
+        Scanner scanner = new Scanner(System.in);
+        Medico medico = new Medico();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        System.out.print("Nombre: ");
+        medico.establecerNombre(scanner.nextLine());
+        System.out.print("Apellido: ");
+        medico.establecerApellido(scanner.nextLine());
+        System.out.print("DNI: ");
+        medico.establecerDni(scanner.nextInt());
+        System.out.print("Clave: ");
+        medico.establecerClave(scanner.nextInt());
+        scanner.nextLine(); // No sé. Salta Domicilio sino...
+        System.out.print("Domicilio: ");
+        medico.establecerDomicilio(scanner.nextLine());
+        System.out.print("Teléfono: ");
+        medico.establecerTelefono(scanner.nextLine());
+        System.out.print("eMail: ");
+        medico.establecerEmail(scanner.nextLine());
+        System.out.print("Fecha de Nacimiento (DD/MM/YYYY): ");
+        medico.establecerFechaNac(LocalDate.parse(scanner.nextLine(), formatter));
+        System.out.print("Sexo: ");
+        medico.establecerSexo(scanner.nextLine().charAt(0));
+        System.out.print("Matrícula Prov.: ");
+        medico.establecerMatriculaProv(scanner.nextLine());
+        System.out.print("Matrícula Nac.: ");
+        medico.establecerMatriculaNac(scanner.nextLine());
+        System.out.print("Especialidades (Separadas por coma): ");
+        medico.establecerEspecialidades(scanner.nextLine());
+        cargarPlanilla(establecerDatos(medico), planillaMedicos);
+    }
+
+    public static String establecerDatos (Medico medico) {
+        ArrayList<String> datos = null;
+        String nombre = medico.obtenerNombre();
+        datos.add(nombre);
+        String apellido = medico.obtenerApellido();
+        datos.add(apellido);
+        String dni = String.valueOf(medico.obtenerDni());
+        datos.add(dni);
+        String clave = String.valueOf(medico.obtenerClave());
+        datos.add(clave);
+        String domicilio = medico.obtenerDomicilio();
+        datos.add(domicilio);
+        String telefono = medico.obtenerTelefono();
+        datos.add(telefono);
+        String eMail = medico.obtenerEmail();
+        datos.add(eMail);
+        String fechaNac = String.valueOf(medico.obtenerFechaNac());
+        datos.add(fechaNac);
+        String sexo = String.valueOf(medico.obtenerSexo());
+        datos.add(sexo);
+        String matriculaProv = medico.obtenerMatriculaProv();
+        datos.add(matriculaProv);
+        String matriculaNac = medico.obtenerMatriculaNac();
+        datos.add(matriculaNac);
+        String especialidades = medico.obtenerEspecialidades();
+        datos.add(especialidades);
+        System.out.println("Datos establecidos");
+        return datos.toString().replace("[", "").replace("]", "").replace(",",";");
+    }
+
+    public static void cargarPlanilla(String nuevaLinea, String planilla) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(planilla));
+            bw.write(nuevaLinea);
+        } catch (Exception e) {
+
+        }
+    }
+
+
     //    public void nuevoMedico() {}
     public static void gestionarPacientes() {}
     //    public void nuevoPaciente() {}
@@ -78,6 +156,7 @@ public class Admin extends Usuario{
                     return new ArrayList<>(Arrays.asList(values));
                 }
             }
+            br.close();
             throw new IOException("Archivo no encontrado.");
         }
     }

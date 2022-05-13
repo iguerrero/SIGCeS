@@ -21,23 +21,47 @@ import java.util.Scanner;
  * @Date: 27/04/2022 <br>
  * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
  */
-public class Main {
+public class Main implements VarsGlobales {
 
-    final static String planillaMedicos = "medicos.csv";
-    final static String planillaAdmins = "admins.csv";
+    /* METODOS GENÉRICOS */
 
     /**
      * Borra la pantalla para mejorar la visualización.
      */
     public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+//        try {
+//            final String os = System.getProperty("os.name");
+//            if (os.contains("Windows"))
+//                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+//            else
+//                Runtime.getRuntime().exec("clear");
+//        } catch (final Exception e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    /**
+     * Selección de opciones numéricas. Para usar antes de Switch en los Menu.
+     * @return int seleccion
+     */
+    public static int seleccion() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Elija una opci\u00F3n: ");
+        int seleccion = scanner.nextInt();
+        return seleccion;
+    }
+
+    /**
+     * Retardo
+     * @param milisegundos
+     */
+    public static void dormirPor(int milisegundos) {
         try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
-                Runtime.getRuntime().exec("clear");
-        } catch (final Exception e) {
-            e.printStackTrace();
+            Thread.sleep(milisegundos);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -55,11 +79,8 @@ public class Main {
                         ___) | | |_| | |__|  __/___) |\s
                        |____/___\\____|\\____\\___|____/\s
                 Sistema Integral de Gestión de Centros de Salud""");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
+        dormirPor(5000);
+        clearScreen();
     }
 
     /**
@@ -67,24 +88,16 @@ public class Main {
      */
     public static void menuInicio() {
         try{
-            clearScreen();
             System.out.println("""
                     \u00BFEs usted M\u00E9dico o Administrador?\s
                     1. M\u00E9dico\s
                     2. Administrador""");
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Elija una opci\u00F3n: ");
-            int seleccion = scanner.nextInt();
-            switch (seleccion) {
+            switch (seleccion()) {
                 case 1 -> menuMedico(buscarMedico());
                 case 2 -> menuAdmin(buscarAdmin());
                 default -> {
-                    System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ie) {
-                        Thread.currentThread().interrupt();
-                    }
+                    System.out.println("Por favor, elija una n\u00FAmero dentro de las opciones provistas.");
+                    dormirPor(1000);
                     clearScreen();
                     menuInicio();
                 }
@@ -94,11 +107,7 @@ public class Main {
              * una letra o un símbolo, en lugar de un entero.
              */
             System.out.println("Los datos no fueron encontrados. Por favor, intente nuevamente.");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
+            dormirPor(1000);
             clearScreen();
             menuInicio();
         }
@@ -123,6 +132,7 @@ public class Main {
                 System.out.print("Por favor, ingrese los 8 n\u00FAmeros de su DNI para ingresar: ");
                 Scanner scanner = new Scanner(System.in);
                 dni = scanner.nextInt();
+//                scanner.close();
                 numDigitos = String.valueOf(dni).length();
                 if (numDigitos != 8) {
                     System.out.println("Su DNI debe tener 8 d\u00EDgitos.");
@@ -133,6 +143,7 @@ public class Main {
                 System.out.print("Ahora, ingrese los 4 n\u00FAmeros de su Clave: ");
                 Scanner scanner = new Scanner(System.in);
                 clave = scanner.nextInt();
+//                scanner.close();
                 numDigitos = String.valueOf(clave).length();
                 if (numDigitos != 4) {
                     System.out.println("Su Clave debe tener 4 d\u00EDgitos. Inténtelo nuevamente.");
@@ -158,6 +169,7 @@ public class Main {
         // Abre planilla y lee cada línea.
         try (BufferedReader br = new BufferedReader(new FileReader(planilla))) {
             String s;
+//            br.close();
             // Lee línea por línea
             while ((s = br.readLine()) != null) {
                 // Divide cada línea y la divide en cada punto y coma.
@@ -202,7 +214,11 @@ public class Main {
                            "1. Ver mi agenda semanal \n" +
                            "2. Ver Historia Cl\u00EDnica");
     }
-
+    
+    /**
+     * Busca al administrador cuyo DNI y clave coincidan con los del archivo <b>admin.csv<b/>.
+     * @return nuevo Admin.
+     */
     public static Admin buscarAdmin() {
         ArrayList<String> datosAdmin = login(planillaAdmins);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
@@ -230,29 +246,27 @@ public class Main {
                 "\033[31m2. Ver Historia Cl\u00EDnica \033[0m \n" +
                 "3. Gestionar M\u00E9dicos \n" +
                 "\033[31m4. Gestionar Administradores \033[0m");
-        Scanner scanner = new Scanner(System.in);
-        int seleccion = scanner.nextInt();
-        switch (seleccion) {
+        switch (seleccion()) {
             case 1 -> Admin.gestionarTurnos();
             case 2 -> Admin.gestionarPacientes();
             case 3 -> Admin.gestionarMedicos();
             case 4 -> Admin.gestionarAdmins();
-            default -> {
-                System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
-                }
-                clearScreen();
-            }
+//            default -> {
+//                System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException ie) {
+//                    Thread.currentThread().interrupt();
+//                }
+//                clearScreen();
+//            }
         }
+
     }
 
     public static void main(String[] args) {
         bienvenida();
         menuInicio();
-
 
     }
 }
