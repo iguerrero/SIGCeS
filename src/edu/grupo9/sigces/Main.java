@@ -79,7 +79,7 @@ public class Main implements VarsGlobales {
                         ___) | | |_| | |__|  __/___) |\s
                        |____/___\\____|\\____\\___|____/\s
                 Sistema Integral de Gestión de Centros de Salud""");
-        dormirPor(5000);
+        dormirPor(3000);
         clearScreen();
     }
 
@@ -126,7 +126,6 @@ public class Main implements VarsGlobales {
         try {
             int numDigitos = 0;
             int dni = 0;
-            int clave = 0;
 
             while (numDigitos != 8) { //Corrobora que sean 8 dígitos.
                 System.out.print("Por favor, ingrese los 8 n\u00FAmeros de su DNI para ingresar: ");
@@ -139,12 +138,13 @@ public class Main implements VarsGlobales {
                 }
             }
 
+            String clave = null;
             while (numDigitos != 4) { //Corrobora que sean 4 dígitos.
                 System.out.print("Ahora, ingrese los 4 n\u00FAmeros de su Clave: ");
                 Scanner scanner = new Scanner(System.in);
-                clave = scanner.nextInt();
+                clave = scanner.nextLine();
 //                scanner.close();
-                numDigitos = String.valueOf(clave).length();
+                numDigitos = clave.length();
                 if (numDigitos != 4) {
                     System.out.println("Su Clave debe tener 4 d\u00EDgitos. Inténtelo nuevamente.");
                 }
@@ -165,7 +165,7 @@ public class Main implements VarsGlobales {
      * @return ArrayList values or null.
      * @throws IOException Archivo no encontrado.
      */
-    public static ArrayList<String> leerCSV(int dni, int clave, String planilla) throws IOException {
+    public static ArrayList<String> leerCSV(int dni, String clave, String planilla) throws IOException {
         // Abre planilla y lee cada línea.
         try (BufferedReader br = new BufferedReader(new FileReader(planilla))) {
             String s;
@@ -175,7 +175,7 @@ public class Main implements VarsGlobales {
                 // Divide cada línea y la divide en cada punto y coma.
                 String[] values = s.split(";");
                 int dniGuardado = Integer.parseInt(values[3]);
-                int claveGuardada = Integer.parseInt(values[4]);
+                String claveGuardada = values[4];
                 if (Objects.equals(dni, dniGuardado) && Objects.equals(clave, claveGuardada)) {
                     return new ArrayList<>(Arrays.asList(values));
                 }
@@ -194,7 +194,7 @@ public class Main implements VarsGlobales {
         return new Medico(datosMedico.get(1),
                 datosMedico.get(2),
                 Integer.parseInt(datosMedico.get(3)),
-                Integer.parseInt(datosMedico.get(4)),
+                datosMedico.get(4),
                 datosMedico.get(5),
                 datosMedico.get(6),
                 datosMedico.get(7),
@@ -225,7 +225,7 @@ public class Main implements VarsGlobales {
         return new Admin(datosAdmin.get(1),
                 datosAdmin.get(2),
                 Integer.parseInt(datosAdmin.get(3)),
-                Integer.parseInt(datosAdmin.get(4)),
+                datosAdmin.get(4),
                 datosAdmin.get(5),
                 datosAdmin.get(6),
                 datosAdmin.get(7),

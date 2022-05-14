@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Medico extends Usuario{
 
     private String idMedico;
-    private int clave;
+    private String clave;
     private String matriculaProv;
     private String matriculaNac;
     private String especialidades;
@@ -18,7 +18,7 @@ public class Medico extends Usuario{
     public Medico(String nombre,
                   String apellido,
                   int dni,
-                  int clave,
+                  String clave,
                   String domicilio,
                   String telefono,
                   String email,
@@ -44,9 +44,9 @@ public class Medico extends Usuario{
     /*
      * getters y setters de la clase
      */
-    public int obtenerClave() { return clave; }
+    public String obtenerClave() { return clave; }
 
-    public void establecerClave(int clave) { this.clave = clave; }
+    public void establecerClave(String clave) { this.clave = clave; }
 
     public String obtenerMatriculaProv() { return matriculaProv; }
 

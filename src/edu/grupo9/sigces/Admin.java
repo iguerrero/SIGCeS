@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Admin extends Usuario implements VarsGlobales {
 
     private static String idAdmin;
-    private int clave;
+    private String clave;
 
    /* CONSTRUCTORES */
     public Admin() {}
@@ -18,7 +18,7 @@ public class Admin extends Usuario implements VarsGlobales {
     public Admin(String nombre,
                  String apellido,
                  int dni,
-                 int clave,
+                 String clave,
                  String domicilio,
                  String telefono,
                  String email,
@@ -40,10 +40,10 @@ public class Admin extends Usuario implements VarsGlobales {
     }
 
     /* GETTERS Y SETTERS */
-    public int obtenerClave() {
+    public String obtenerClave() {
         return clave;
     }
-    public void establecerClave(int clave) {
+    public void establecerClave(String clave) {
         this.clave = clave;
     }
 
@@ -62,6 +62,11 @@ public class Admin extends Usuario implements VarsGlobales {
         }
     }
 
+    /* * * CARGAR NUEVO MÉDICO * * */
+
+    /**
+     *  Crear un nuevo objeto Medico
+     */
     public static void cargarNuevoMedico() {
         System.out.println("Por favor, ingrese los datos del nuevo Médico.");
         Scanner scanner = new Scanner(System.in);
@@ -74,7 +79,7 @@ public class Admin extends Usuario implements VarsGlobales {
         System.out.print("DNI: ");
         medico.establecerDni(scanner.nextInt());
         System.out.print("Clave: ");
-        medico.establecerClave(scanner.nextInt());
+        medico.establecerClave(scanner.nextLine());
         scanner.nextLine(); // No sé. Salta Domicilio sino...
         System.out.print("Domicilio: ");
         medico.establecerDomicilio(scanner.nextLine());
@@ -95,51 +100,60 @@ public class Admin extends Usuario implements VarsGlobales {
         cargarPlanilla(establecerDatos(medico), planillaMedicos);
     }
 
+    /**
+     * Cargar los datos del objeto Medico en un arreglo
+     */
     public static String establecerDatos (Medico medico) {
-        ArrayList<String> datos = null;
-        String nombre = medico.obtenerNombre();
-        datos.add(nombre);
-        String apellido = medico.obtenerApellido();
-        datos.add(apellido);
-        String dni = String.valueOf(medico.obtenerDni());
-        datos.add(dni);
-        String clave = String.valueOf(medico.obtenerClave());
-        datos.add(clave);
-        String domicilio = medico.obtenerDomicilio();
-        datos.add(domicilio);
-        String telefono = medico.obtenerTelefono();
-        datos.add(telefono);
-        String eMail = medico.obtenerEmail();
-        datos.add(eMail);
-        String fechaNac = String.valueOf(medico.obtenerFechaNac());
-        datos.add(fechaNac);
-        String sexo = String.valueOf(medico.obtenerSexo());
-        datos.add(sexo);
-        String matriculaProv = medico.obtenerMatriculaProv();
-        datos.add(matriculaProv);
-        String matriculaNac = medico.obtenerMatriculaNac();
-        datos.add(matriculaNac);
-        String especialidades = medico.obtenerEspecialidades();
-        datos.add(especialidades);
+        ArrayList<String> datos = new ArrayList<>();
+        try {
+            datos.add(String.valueOf(contarLineas(planillaMedicos)));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        datos.add(medico.obtenerNombre());
+        datos.add(medico.obtenerApellido());
+        datos.add(String.valueOf(medico.obtenerDni()));
+        datos.add(medico.obtenerClave());
+        datos.add(medico.obtenerDomicilio());
+        datos.add(medico.obtenerTelefono());
+        datos.add(medico.obtenerEmail());
+        datos.add(String.valueOf(medico.obtenerFechaNac()));
+        datos.add(String.valueOf(medico.obtenerSexo()));
+        datos.add(medico.obtenerMatriculaProv());
+        datos.add(medico.obtenerMatriculaNac());
+        datos.add(medico.obtenerEspecialidades());
         System.out.println("Datos establecidos");
         return datos.toString().replace("[", "").replace("]", "").replace(",",";");
     }
 
+    /**
+     * Cargar los datos en una nueva línea en la planilla medicos.csv
+     * @param nuevaLinea
+     * @param planilla
+     */
     public static void cargarPlanilla(String nuevaLinea, String planilla) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(planilla));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(planilla, true));
+            bw.newLine();
             bw.write(nuevaLinea);
+            bw.flush();
+            bw.close();
         } catch (Exception e) {
 
         }
     }
 
 
-    //    public void nuevoMedico() {}
+    public static int contarLineas(String planilla) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(planilla));
+        int lines = 0;
+        while (reader.readLine() != null) lines++;
+        reader.close();
+        return lines + 1;
+    }
+
     public static void gestionarPacientes() {}
-    //    public void nuevoPaciente() {}
     public static void gestionarTurnos() {}
-    //    public void nuevoTurno() {}
     public static void gestionarAdmins() {}
 
     public static ArrayList<String> leerCSV(String nombre, String apellido, String planilla) throws IOException {

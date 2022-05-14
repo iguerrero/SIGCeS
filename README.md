@@ -22,6 +22,9 @@ Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto,
 
 ### Acerca del TP N° 2
 
+Esta etapa es individual.
+Alumno: Ignacio Guerrero
+
 En lo que respecta a la __Consigna__, 
 
 - Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
