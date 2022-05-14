@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment=" Cargué nuevamente datos en la planilla medicos.csv">
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medicos.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652455582134</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()">
+      <created>1652500944206</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652500944206</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,7 +170,8 @@
     <MESSAGE value="Un montón de cambios..." />
     <MESSAGE value="Castellanicé los getters y setters, acorde con la bibliografía." />
     <MESSAGE value=" Cargué nuevamente datos en la planilla medicos.csv" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Cargué nuevamente datos en la planilla medicos.csv" />
+    <MESSAGE value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

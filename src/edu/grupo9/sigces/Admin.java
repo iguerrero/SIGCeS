@@ -56,7 +56,7 @@ public class Admin extends Usuario implements VarsGlobales {
                 1. Cargar un nuevo Médico \s
                 2. Modificar Datos \s
                 3. Eliminar Médico \s
-                4. Gestionar Agenda""");
+                \033[31m4. Gestionar Agenda\033[0m""");
         switch (Main.seleccion()){
             case 1 -> cargarNuevoMedico();
         }
