@@ -23,12 +23,12 @@ import java.util.Scanner;
  */
 public class Main implements VarsGlobales {
 
-    /* METODOS GENÉRICOS */
+    /* MÉTODOS GENÉRICOS */
 
     /**
      * Borra la pantalla para mejorar la visualización.
      */
-    public static void clearScreen() {
+    public static void limpiarPantalla() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 //        try {
@@ -54,7 +54,7 @@ public class Main implements VarsGlobales {
     }
 
     /**
-     * Retardo
+     * Retardo de tiempo. Pa meterle drama a la cosa...
      * @param milisegundos
      */
     public static void dormirPor(int milisegundos) {
@@ -70,7 +70,7 @@ public class Main implements VarsGlobales {
      */
     public static void bienvenida() {
 
-        clearScreen();
+        limpiarPantalla();
         System.out.println("""
                 Bienvenido a\s
                         ____ ___ ____  ____     ____\s
@@ -80,7 +80,7 @@ public class Main implements VarsGlobales {
                        |____/___\\____|\\____\\___|____/\s
                 Sistema Integral de Gestión de Centros de Salud""");
         dormirPor(3000);
-        clearScreen();
+        limpiarPantalla();
     }
 
     /**
@@ -98,7 +98,7 @@ public class Main implements VarsGlobales {
                 default -> {
                     System.out.println("Por favor, elija una n\u00FAmero dentro de las opciones provistas.");
                     dormirPor(1000);
-                    clearScreen();
+                    limpiarPantalla();
                     menuInicio();
                 }
             }
@@ -108,7 +108,7 @@ public class Main implements VarsGlobales {
              */
             System.out.println("Los datos no fueron encontrados. Por favor, intente nuevamente.");
             dormirPor(1000);
-            clearScreen();
+            limpiarPantalla();
             menuInicio();
         }
     }
@@ -121,7 +121,7 @@ public class Main implements VarsGlobales {
      * @param file String. Es provisto por el método que solicita este procedimiento.
      */
     public static ArrayList<String> login(String file) {
-        clearScreen();
+        limpiarPantalla();
         System.out.println("Para acceder a la aplicaci\u00F3n, deber\u00E1 proveer su DNI y su clave de acceso.");
         try {
             int numDigitos = 0;
@@ -207,7 +207,7 @@ public class Main implements VarsGlobales {
     }
 
     public static void menuMedico(Medico medico) {
-        clearScreen();
+        limpiarPantalla();
         String tratamiento = String.valueOf(medico.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
         System.out.println(tratamiento + medico.obtenerApellido() + "\n" +
                            "Seleccione una de las siguientes opciones: \n" +
@@ -238,7 +238,7 @@ public class Main implements VarsGlobales {
     }
 
     private static void menuAdmin(Admin admin) {
-        clearScreen();
+        limpiarPantalla();
         String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M") ? "Bienvenido, " : "Bienvenida, ";
         System.out.println(tratamiento + admin.obtenerNombre() + "\n" +
                 "Seleccione una de las siguientes opciones: \n" +

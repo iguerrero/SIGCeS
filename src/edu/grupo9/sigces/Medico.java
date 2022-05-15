@@ -1,6 +1,7 @@
 package edu.grupo9.sigces;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Medico extends Usuario{
 
@@ -46,7 +47,9 @@ public class Medico extends Usuario{
      */
     public String obtenerClave() { return clave; }
 
-    public void establecerClave(String clave) { this.clave = clave; }
+    public void establecerClave(String clave) {
+        this.clave = clave;
+    }
 
     public String obtenerMatriculaProv() { return matriculaProv; }
 

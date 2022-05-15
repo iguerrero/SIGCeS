@@ -12,7 +12,7 @@ public class Admin extends Usuario implements VarsGlobales {
     private static String idAdmin;
     private String clave;
 
-   /* CONSTRUCTORES */
+   /* * * CONSTRUCTORES * * */
     public Admin() {}
 
     public Admin(String nombre,
@@ -39,7 +39,7 @@ public class Admin extends Usuario implements VarsGlobales {
         this.sexo = sexo;
     }
 
-    /* GETTERS Y SETTERS */
+    /* * * GETTERS Y SETTERS * * */
     public String obtenerClave() {
         return clave;
     }
@@ -49,7 +49,7 @@ public class Admin extends Usuario implements VarsGlobales {
 
     /* METODOS DE CLASE */
 
-    /* MÉDICOS */
+    /* * * GESTIÓN DE MÉDICOS * * */
     public static void gestionarMedicos() {
         System.out.println("""
                 ¿Qué desea hacer? \s
@@ -59,10 +59,10 @@ public class Admin extends Usuario implements VarsGlobales {
                 \033[31m4. Gestionar Agenda\033[0m""");
         switch (Main.seleccion()){
             case 1 -> cargarNuevoMedico();
+            case 2 -> modificarMedico();
+            case 3 -> eliminarMedico();
         }
     }
-
-    /* * * CARGAR NUEVO MÉDICO * * */
 
     /**
      *  Crear un nuevo objeto Medico
@@ -78,9 +78,9 @@ public class Admin extends Usuario implements VarsGlobales {
         medico.establecerApellido(scanner.nextLine());
         System.out.print("DNI: ");
         medico.establecerDni(scanner.nextInt());
-        System.out.print("Clave: ");
-        medico.establecerClave(scanner.nextLine());
-        scanner.nextLine(); // No sé. Salta Domicilio sino...
+        String claveValida;
+        while (!validarClave(claveValida = scanner.nextLine())){ System.out.println("Clave (debe tener 4 dígitos):");}
+        medico.establecerClave(claveValida);
         System.out.print("Domicilio: ");
         medico.establecerDomicilio(scanner.nextLine());
         System.out.print("Teléfono: ");
@@ -102,6 +102,8 @@ public class Admin extends Usuario implements VarsGlobales {
 
     /**
      * Cargar los datos del objeto Medico en un arreglo
+     * @param medico Medico
+     * @return <i>ArrayList</i> con los <b>datos</b> del objeto Medico
      */
     public static String establecerDatos (Medico medico) {
         ArrayList<String> datos = new ArrayList<>();
@@ -152,11 +154,31 @@ public class Admin extends Usuario implements VarsGlobales {
         return lines + 1;
     }
 
+    public static void modificarMedico() {
+        System.out.println("Por favor, ingrese el nombre y apellido del médico.");
+        Scanner scanner = new Scanner(System.in);
+        Medico medico = new Medico();
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Apellido: ");
+        String apellido = scanner.nextLine();
+    }
+
+    public static void eliminarMedico() {
+        System.out.println("Por favor, ingrese el nombre y apellido del médico.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Apellido: ");
+        String apellido = scanner.nextLine();
+        ArrayList<String> datosMedico = new ArrayList<>(leerCSV(nombre, apellido, planillaMedicos));
+    }
+
     public static void gestionarPacientes() {}
     public static void gestionarTurnos() {}
     public static void gestionarAdmins() {}
 
-    public static ArrayList<String> leerCSV(String nombre, String apellido, String planilla) throws IOException {
+    public static ArrayList<String> leerCSV(String nombre, String apellido, String planilla) {
         // Abre planilla y lee cada línea.
         try (BufferedReader br = new BufferedReader(new FileReader(planilla))) {
             String s;
@@ -164,14 +186,28 @@ public class Admin extends Usuario implements VarsGlobales {
             while ((s = br.readLine()) != null) {
                 // Divide cada línea y la divide en cada punto y coma.
                 String[] values = s.split(";");
-                String nombrePlanilla = values[1];
-                String apellidoPlanilla = values[2];
+                String nombrePlanilla = values[1].trim();
+                String apellidoPlanilla = values[2].trim();
                 if (Objects.equals(nombre, nombrePlanilla) && Objects.equals(apellido, apellidoPlanilla)) {
                     return new ArrayList<>(Arrays.asList(values));
                 }
             }
             br.close();
-            throw new IOException("Archivo no encontrado.");
+//            throw new IOException("Archivo no encontrado.");
+        } catch (Exception e) {
+
         }
+        return null;
+    }
+
+    /**
+     * En este caso, valida que la clave sea numérica y de 4 dígitos.
+     * Se puso aparte para poder modificar el método de validación sin
+     * tener que tocar el código.
+     * @param clave
+     * @return boolean
+     */
+    public static boolean validarClave(String clave) {
+        return clave.length() == 4;
     }
 }

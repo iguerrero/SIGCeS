@@ -7,6 +7,8 @@
     <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652500944206</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()">
+      <created>1652541848967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652541848967</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +184,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java</url>
+          <line>180</line>
+          <properties class="edu.grupo9.sigces.Admin" method="leerCSV">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception" />
       </default-breakpoints>
@@ -186,6 +206,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SIGCeS$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1650991654022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SIGCeS$SIGCeS.ic" NAME="SIGCeS Coverage Results" MODIFIED="1651031127794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SIGCeS$SIGCeS.ic" NAME="SIGCeS Coverage Results" MODIFIED="1652566653022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
