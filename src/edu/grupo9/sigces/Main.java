@@ -5,6 +5,8 @@
  */
 package edu.grupo9.sigces;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,6 +17,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static edu.grupo9.sigces.Utiles.*;
+
+
 /**
  * @author Ignacio Guerrero
  * @version 0.1 TP2
@@ -23,47 +28,6 @@ import java.util.Scanner;
  */
 public class Main implements VarsGlobales {
 
-    /* MÉTODOS GENÉRICOS */
-
-    /**
-     * Borra la pantalla para mejorar la visualización.
-     */
-    public static void limpiarPantalla() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-//        try {
-//            final String os = System.getProperty("os.name");
-//            if (os.contains("Windows"))
-//                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-//            else
-//                Runtime.getRuntime().exec("clear");
-//        } catch (final Exception e) {
-//            e.printStackTrace();
-//        }
-    }
-
-    /**
-     * Selección de opciones numéricas. Para usar antes de Switch en los Menu.
-     * @return int seleccion
-     */
-    public static int seleccion() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Elija una opci\u00F3n: ");
-        int seleccion = scanner.nextInt();
-        return seleccion;
-    }
-
-    /**
-     * Retardo de tiempo. Pa meterle drama a la cosa...
-     * @param milisegundos
-     */
-    public static void dormirPor(int milisegundos) {
-        try {
-            Thread.sleep(milisegundos);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     /**
      * Pantalla de Bienvenida.
@@ -94,7 +58,7 @@ public class Main implements VarsGlobales {
                     2. Administrador""");
             switch (seleccion()) {
                 case 1 -> menuMedico(buscarMedico());
-                case 2 -> menuAdmin(buscarAdmin());
+                case 2 -> Admin.menuAdmin(Admin.buscarAdmin());
                 default -> {
                     System.out.println("Por favor, elija una n\u00FAmero dentro de las opciones provistas.");
                     dormirPor(1000);
@@ -186,6 +150,7 @@ public class Main implements VarsGlobales {
 
     /**
      * Busca al médico cuyo DNI y clave coincidan con los del archivo <b>medicos.csv<b/>.
+     * TODO Este método debe migrarse a la clase Medico
      * @return nuevo Medico.
      */
     public static Medico buscarMedico() {
@@ -206,7 +171,11 @@ public class Main implements VarsGlobales {
         );
     }
 
-    public static void menuMedico(Medico medico) {
+    /**
+     * TODO Este método debe migrarse a la clase Medico
+     * @param medico
+     */
+    public static void menuMedico(@NotNull Medico medico) {
         limpiarPantalla();
         String tratamiento = String.valueOf(medico.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
         System.out.println(tratamiento + medico.obtenerApellido() + "\n" +
@@ -219,50 +188,6 @@ public class Main implements VarsGlobales {
      * Busca al administrador cuyo DNI y clave coincidan con los del archivo <b>admin.csv<b/>.
      * @return nuevo Admin.
      */
-    public static Admin buscarAdmin() {
-        ArrayList<String> datosAdmin = login(planillaAdmins);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        return new Admin(datosAdmin.get(1),
-                datosAdmin.get(2),
-                Integer.parseInt(datosAdmin.get(3)),
-                datosAdmin.get(4),
-                datosAdmin.get(5),
-                datosAdmin.get(6),
-                datosAdmin.get(7),
-                LocalDate.parse(datosAdmin.get(8), formatter),
-                datosAdmin.get(9).charAt(0),
-                datosAdmin.get(10),
-                datosAdmin.get(11),
-                datosAdmin.get(12)
-        );
-    }
-
-    private static void menuAdmin(Admin admin) {
-        limpiarPantalla();
-        String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M") ? "Bienvenido, " : "Bienvenida, ";
-        System.out.println(tratamiento + admin.obtenerNombre() + "\n" +
-                "Seleccione una de las siguientes opciones: \n" +
-                "\033[31m1. Gestionar Turnos  \033[0m \n" +
-                "\033[31m2. Ver Historia Cl\u00EDnica \033[0m \n" +
-                "3. Gestionar M\u00E9dicos \n" +
-                "\033[31m4. Gestionar Administradores \033[0m");
-        switch (seleccion()) {
-            case 1 -> Admin.gestionarTurnos();
-            case 2 -> Admin.gestionarPacientes();
-            case 3 -> Admin.gestionarMedicos();
-            case 4 -> Admin.gestionarAdmins();
-//            default -> {
-//                System.out.println("Opci\u00F3n no encontrada. Por favor, intente nuevamente.");
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException ie) {
-//                    Thread.currentThread().interrupt();
-//                }
-//                clearScreen();
-//            }
-        }
-
-    }
 
     public static void main(String[] args) {
         bienvenida();

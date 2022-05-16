@@ -23,10 +23,14 @@ Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto,
 ### Acerca del TP N° 2
 
 Esta etapa es individual.
-Alumno: Ignacio Guerrero
+Alumno: **Ignacio Guerrero**
 
-En lo que respecta a la __Consigna__, 
+En lo que respecta a la __Consigna__, el presente trabajo codifica las clases que se corresponden a las entidades identificadas en la primera instancia del trabajo práctico.
+También implementa el código Java que da resolución a la situación problemática, aunque de forma parcial.
 
-- Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
-- Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.
-- Las opciones de menú en rojo aún no fueron implementadas.
+- Para ingresar como <span style="color:red">Médico</span>, utilizar el DNI 32123123 y la CLAVE 1234.
+- **Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.**
+- Las opciones de menú en <span style="color:red">rojo</span> aún no fueron implementadas.
+- Se adjunta una copia de las planillas admins.csv y medicos.csv, en caso de pérdida de información.
+- Aún no están implementadas las opciones de "volver al menú anterior", por lo que al llegar al final del menú, el programa termina.
+- Se espera poder migrar la aplicación de archivos CSV a una base de datos SQL para el próximo TP.

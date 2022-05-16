@@ -1,11 +1,15 @@
 package edu.grupo9.sigces;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static edu.grupo9.sigces.Utiles.*;
 
 public class Admin extends Usuario implements VarsGlobales {
 
@@ -49,6 +53,40 @@ public class Admin extends Usuario implements VarsGlobales {
 
     /* METODOS DE CLASE */
 
+    public static Admin buscarAdmin() {
+        ArrayList<String> datosAdmin = Main.login(planillaAdmins);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        return new Admin(datosAdmin.get(1),
+                datosAdmin.get(2),
+                Integer.parseInt(datosAdmin.get(3)),
+                datosAdmin.get(4),
+                datosAdmin.get(5),
+                datosAdmin.get(6),
+                datosAdmin.get(7),
+                LocalDate.parse(datosAdmin.get(8), formatter),
+                datosAdmin.get(9).charAt(0),
+                datosAdmin.get(10),
+                datosAdmin.get(11),
+                datosAdmin.get(12)
+        );
+    }
+    static void menuAdmin(Admin admin) {
+        limpiarPantalla();
+        String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M") ? "Bienvenido, " : "Bienvenida, ";
+        System.out.println(tratamiento + admin.obtenerNombre() + "\n" +
+                "Seleccione una de las siguientes opciones: \n" +
+                "\033[31m1. Gestionar Turnos  \033[0m \n" +
+                "\033[31m2. Ver Historia Cl\u00EDnica \033[0m \n" +
+                "3. Gestionar M\u00E9dicos \n" +
+                "\033[31m4. Gestionar Administradores \033[0m");
+        switch (seleccion()) {
+            case 1 -> Admin.gestionarTurnos();
+            case 2 -> Admin.gestionarPacientes();
+            case 3 -> Admin.gestionarMedicos();
+            case 4 -> Admin.gestionarAdmins();
+        }
+    }
+
     /* * * GESTIÓN DE MÉDICOS * * */
     public static void gestionarMedicos() {
         System.out.println("""
@@ -56,11 +94,14 @@ public class Admin extends Usuario implements VarsGlobales {
                 1. Cargar un nuevo Médico \s
                 2. Modificar Datos \s
                 3. Eliminar Médico \s
-                \033[31m4. Gestionar Agenda\033[0m""");
-        switch (Main.seleccion()){
+                \033[31m4. Gestionar Agenda\033[0m
+                5. Volver al menú anterior""");
+
+        switch (seleccion()){
             case 1 -> cargarNuevoMedico();
             case 2 -> modificarMedico();
             case 3 -> eliminarMedico();
+            case 5 -> menuAdmin(buscarAdmin());
         }
     }
 
@@ -145,7 +186,6 @@ public class Admin extends Usuario implements VarsGlobales {
         }
     }
 
-
     public static int contarLineas(String planilla) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(planilla));
         int lines = 0;
@@ -171,17 +211,54 @@ public class Admin extends Usuario implements VarsGlobales {
         String nombre = scanner.nextLine();
         System.out.print("Apellido: ");
         String apellido = scanner.nextLine();
-        ArrayList<String> datosMedico = new ArrayList<>(leerCSV(nombre, apellido, planillaMedicos));
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(planillaMedicos));
+            StringBuilder salida = new StringBuilder();
+            String linea;
+            String porEliminar = null;
+            while ((linea = br.readLine()) != null) {
+                String[] values = linea.split(";");
+                String idPlanilla = values[0].trim();
+                String nombrePlanilla = values[1].trim();
+                String apellidoPlanilla = values[2].trim();
+                if (Objects.equals(nombre, nombrePlanilla) && Objects.equals(apellido, apellidoPlanilla)) {
+                    porEliminar = linea;
+                    linea = idPlanilla + "; Médico eliminado;;;;;;;;;;;";
+                }
+                salida.append(linea + "\n");
+            }
+            br.close();
+            System.out.println("""
+                        Por favor, confirme la operación.\s
+                        Está a punto de eliminar a: \s"""
+                        + porEliminar + """
+                        1. Sí \s
+                        2. No
+                        """);
+            int seleccion = scanner.nextInt();
+            if (seleccion == 1) {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(planillaMedicos));
+                bw.write(String.valueOf(salida));
+                bw.flush();
+                bw.close();
+            }
+            gestionarMedicos();
+        } catch (IOException f) {
+
+        }
     }
 
     public static void gestionarPacientes() {}
+
     public static void gestionarTurnos() {}
+
     public static void gestionarAdmins() {}
 
     public static ArrayList<String> leerCSV(String nombre, String apellido, String planilla) {
         // Abre planilla y lee cada línea.
         try (BufferedReader br = new BufferedReader(new FileReader(planilla))) {
             String s;
+            br.close();
             // Lee línea por línea
             while ((s = br.readLine()) != null) {
                 // Divide cada línea y la divide en cada punto y coma.
@@ -192,8 +269,6 @@ public class Admin extends Usuario implements VarsGlobales {
                     return new ArrayList<>(Arrays.asList(values));
                 }
             }
-            br.close();
-//            throw new IOException("Archivo no encontrado.");
         } catch (Exception e) {
 
         }
