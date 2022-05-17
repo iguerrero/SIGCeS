@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
-import static edu.grupo9.sigces.Utiles.*;
+import static edu.grupo9.sigces.Utilidades.*;
 
 
 /**
@@ -175,6 +175,7 @@ public class Main implements VarsGlobales {
      * TODO Este método debe migrarse a la clase Medico
      * @param medico
      */
+
     public static void menuMedico(@NotNull Medico medico) {
         limpiarPantalla();
         String tratamiento = String.valueOf(medico.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";

@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()">
-      <change afterPath="$PROJECT_DIR$/lib/annotations-20.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admins.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utiles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/medicos.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Consignas_TP2.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consignas_TP2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIGCeS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SIGCeS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admins.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/admins - copia.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicos - copia.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicos.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "exceleditor.install": "true",
-    "last_opened_file_path": "C:/Users/Lord Vader/IdeaProjects/SIGCeS/src",
+    "last_opened_file_path": "C:/Users/Lord Vader/Documents/Siglo 21/Programación Orientada a Objetos",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -178,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652622085297</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()">
+      <created>1652743759626</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652743759626</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,7 +201,8 @@
     <MESSAGE value="Castellanicé los getters y setters, acorde con la bibliografía." />
     <MESSAGE value=" Cargué nuevamente datos en la planilla medicos.csv" />
     <MESSAGE value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
+    <MESSAGE value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,7 +2,7 @@ package edu.grupo9.sigces;
 
 import java.util.Scanner;
 
-public class Utiles {
+public class Utilidades {
 
     /* MÉTODOS GENÉRICOS */
 

@@ -1,15 +1,11 @@
 package edu.grupo9.sigces;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static edu.grupo9.sigces.Utiles.*;
+import static edu.grupo9.sigces.Utilidades.*;
 
 public class Admin extends Usuario implements VarsGlobales {
 
@@ -80,10 +76,10 @@ public class Admin extends Usuario implements VarsGlobales {
                 "3. Gestionar M\u00E9dicos \n" +
                 "\033[31m4. Gestionar Administradores \033[0m");
         switch (seleccion()) {
-            case 1 -> Admin.gestionarTurnos();
-            case 2 -> Admin.gestionarPacientes();
-            case 3 -> Admin.gestionarMedicos();
-            case 4 -> Admin.gestionarAdmins();
+            case 1 -> gestionarTurnos();
+            case 2 -> gestionarPacientes();
+            case 3 -> gestionarMedicos();
+            case 4 -> gestionarAdmins();
         }
     }
 
@@ -222,16 +218,17 @@ public class Admin extends Usuario implements VarsGlobales {
                 String nombrePlanilla = values[1].trim();
                 String apellidoPlanilla = values[2].trim();
                 if (Objects.equals(nombre, nombrePlanilla) && Objects.equals(apellido, apellidoPlanilla)) {
-                    porEliminar = linea;
+                    porEliminar = nombre + " " + apellido;
                     linea = idPlanilla + "; Médico eliminado;;;;;;;;;;;";
                 }
                 salida.append(linea + "\n");
             }
             br.close();
-            System.out.println("""
+            System.out.print("""
                         Por favor, confirme la operación.\s
-                        Está a punto de eliminar a: \s"""
-                        + porEliminar + """
+                        Está a punto de eliminar a: \s""");
+            System.out.println(porEliminar);
+            System.out.println("""
                         1. Sí \s
                         2. No
                         """);
@@ -241,6 +238,9 @@ public class Admin extends Usuario implements VarsGlobales {
                 bw.write(String.valueOf(salida));
                 bw.flush();
                 bw.close();
+                System.out.println(porEliminar + " fue eliminado del Sistema.");
+                dormirPor(1000);
+                limpiarPantalla();
             }
             gestionarMedicos();
         } catch (IOException f) {
