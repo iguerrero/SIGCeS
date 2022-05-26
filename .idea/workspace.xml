@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()">
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIGCeS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SIGCeS.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +48,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "exceleditor.install": "true",
-    "last_opened_file_path": "C:/Users/Lord Vader/Documents/Siglo 21/Programación Orientada a Objetos",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "last_opened_file_path": "C:/Users/Lord Vader/JavaFX/javafx-sdk-18.0.1/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.10687023",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -178,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652743759626</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()">
+      <created>1652807690042</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652807690042</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
