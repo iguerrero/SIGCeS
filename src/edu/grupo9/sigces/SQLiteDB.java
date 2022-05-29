@@ -5,17 +5,26 @@ import java.sql.*;
 
 public class SQLiteDB {
 
-    public static void conectarBaseDeDatos() {
+    public static Connection conectarBaseDeDatos() {
         Connection connection = null;
         try {
             // create a database connection
             Class.forName("org.sqlite.JDBC");
             File dbFile = new File("src\\sigces.db");
-            System.out.println(dbFile.getAbsolutePath());
             connection = DriverManager.getConnection("jdbc:sqlite:" + dbFile.getAbsolutePath());
+
+        } catch (Exception e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        }
+        return connection;
+    }
+
+    public static void crearTablas(Connection connection) {
+        try{
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
-
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS pacientes (\n" +
                     "  idPaciente INTEGER PRIMARY KEY," +
                     "  nombre VARCHAR(50) NOT NULL," +
@@ -28,6 +37,7 @@ public class SQLiteDB {
                     "  fechaNac DATE NOT NULL, " +
                     "  sexo CHAR(1) DEFAULT 'M'" +
                     ");");
+
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS medicos (" +
                     "  idMedico INTEGER PRIMARY KEY," +
                     "  nombre VARCHAR(50) NOT NULL," +
@@ -57,6 +67,25 @@ public class SQLiteDB {
                     "  sexo CHAR(1) DEFAULT 'M'" +
                     ");");
 
+        } catch (Exception e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (connection != null) {connection.close();}
+            } catch (SQLException e) {
+            // connection close failed.
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void agregarDatos(Connection connection) {
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            statement.setQueryTimeout(30);
             statement.executeUpdate("INSERT INTO admins (" +
                     "nombre, " +
                     "apellido, " +
@@ -92,14 +121,12 @@ public class SQLiteDB {
                 System.out.println("name = " + rs.getString("nombre"));
                 System.out.println("id = " + rs.getInt("idAdmin"));
             }
-        } catch (Exception e) {
-            // if the error message is "out of memory",
-            // it probably means no database file is found
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             try {
-                if (connection != null)
-                    connection.close();
+                if (connection != null) {connection.close();}
             } catch (SQLException e) {
                 // connection close failed.
                 System.err.println(e.getMessage());

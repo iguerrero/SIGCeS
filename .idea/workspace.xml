@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
       <change afterPath="$PROJECT_DIR$/sigces.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_sigces.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/CRUD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sigces.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIGCeS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SIGCeS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_sigces.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sigces.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sigces.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653592479913</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
+      <created>1653845617408</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653845617408</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,17 +245,11 @@
     <MESSAGE value=" Cargué nuevamente datos en la planilla medicos.csv" />
     <MESSAGE value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
     <MESSAGE value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
+    <MESSAGE value="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception" />
       </default-breakpoints>
