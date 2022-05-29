@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
-      <change afterPath="$PROJECT_DIR$/sigces.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_sigces.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sigces.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sigces.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653845617408</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
+      <created>1653849878080</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653849878080</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
+      <created>1653849920117</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1653849920117</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

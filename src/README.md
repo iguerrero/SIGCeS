@@ -22,7 +22,7 @@ Téngase en cuenta que este es un proyecto de índole *educativa* y, por lo tanto,
 
 ### Acerca del TP N° 2
 
-Esta etapa es individual.
+Esta etapa es INDIVIDUAL.
 Alumno: **Ignacio Guerrero**
 
 En lo que respecta a la __Consigna__, el presente trabajo codifica las clases que se corresponden a las entidades identificadas en la primera instancia del trabajo práctico.
@@ -34,3 +34,13 @@ También implementa el código Java que da resolución a la situación problemática,
 - Se adjunta una copia de las planillas admins.csv y medicos.csv, en caso de pérdida de información.
 - Aún no están implementadas las opciones de "volver al menú anterior", por lo que al llegar al final del menú, el programa termina.
 - Se espera poder migrar la aplicación de archivos CSV a una base de datos SQL para el próximo TP.
+
+### Acerca del TP N° 3
+
+Esta etapa es GRUPAL
+
+Para esta etapa hemos optado en implementar una base de datos **SQLite** junto con un patrón de diseño **DAO** (Data Access Object)
+
+- La base de datos **sigces.db** se encuentra dentro de la carpeta **src**.
+- Se adjunta el driver **sqlite-jdbc-3.7.2.jar**.
+- Se adjunta la herramienta **SQLiteStudio** para trabajar con la base de datos fuera de la aplicación.

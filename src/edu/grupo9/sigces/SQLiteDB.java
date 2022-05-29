@@ -4,9 +4,9 @@ import java.io.File;
 import java.sql.*;
 
 public class SQLiteDB {
+    protected static Connection connection = null;
 
-    public static Connection conectarBaseDeDatos() {
-        Connection connection = null;
+    public static Connection conectar() {
         try {
             // create a database connection
             Class.forName("org.sqlite.JDBC");
@@ -19,6 +19,15 @@ public class SQLiteDB {
             System.err.println(e.getMessage());
         }
         return connection;
+    }
+
+    public static void cerrarConexion() {
+        try {
+            if (connection != null) {connection.close();}
+        } catch (SQLException e) {
+            // connection close failed.
+            System.err.println(e.getMessage());
+        }
     }
 
     public static void crearTablas(Connection connection) {
@@ -72,12 +81,7 @@ public class SQLiteDB {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         } finally {
-            try {
-                if (connection != null) {connection.close();}
-            } catch (SQLException e) {
-            // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            cerrarConexion();
         }
     }
 
