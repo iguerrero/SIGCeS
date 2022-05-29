@@ -19,9 +19,9 @@ public abstract class Usuario {
     protected LocalDate fechaNac;
     protected char sexo;
 
-    public Usuario() {}
+    protected Usuario() {}
 
-    public Usuario(String nombre,
+    protected Usuario(String nombre,
                    String apellido,
                    int dni,
                    String domicilio,
