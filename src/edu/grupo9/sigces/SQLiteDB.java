@@ -6,7 +6,7 @@ import java.sql.*;
 public class SQLiteDB {
     protected static Connection connection = null;
 
-    public static Connection conectar() {
+    public static void conectar() {
         try {
             // create a database connection
             Class.forName("org.sqlite.JDBC");
@@ -18,7 +18,6 @@ public class SQLiteDB {
             // it probably means no database file is found
             System.err.println(e.getMessage());
         }
-        return connection;
     }
 
     public static void cerrarConexion() {
@@ -30,7 +29,7 @@ public class SQLiteDB {
         }
     }
 
-    public static void crearTablas(Connection connection) {
+    public static void crearTablas() {
         try{
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
@@ -85,7 +84,7 @@ public class SQLiteDB {
         }
     }
 
-    public static void agregarDatos(Connection connection) {
+    public static void agregarDatos() {
         Statement statement = null;
         try {
             statement = connection.createStatement();
@@ -103,38 +102,11 @@ public class SQLiteDB {
                     "VALUES('Alina','Santos', 38111222,'1234', 'Av. 14 125', '3534512345', " +
                     "'alisantos@hotmail.com', 1996-12-12, 'F')");
 
-            statement.executeUpdate("INSERT INTO medicos (" +
-                    "nombre, " +
-                    "apellido, " +
-                    "dni, " +
-                    "clave, " +
-                    "domicilio, " +
-                    "telefono, " +
-                    "email, " +
-                    "fechaNac, " +
-                    "sexo, " +
-                    "matriculaProv, " +
-                    "matriculaNac, " +
-                    "especialidades)" +
-                    "VALUES('René', 'Favaloro', 4567890, '1234', 'Av. Belgrano 1746', '011 43781200', " +
-                    "'rene@favaloro.com', 1928-07-12, 'M', '11111', '11111', 'Cardiología')");
-
-            ResultSet rs = statement.executeQuery("SELECT * FROM admins");
-            while (rs.next()) {
-                // read the result set
-                System.out.println("name = " + rs.getString("nombre"));
-                System.out.println("id = " + rs.getInt("idAdmin"));
-            }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             throw new RuntimeException(e);
         } finally {
-            try {
-                if (connection != null) {connection.close();}
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
+            cerrarConexion();
         }
     }
 }

@@ -45,7 +45,7 @@ public class Main implements VarsGlobales {
                 Sistema Integral de Gestión de Centros de Salud""");
         dormirPor(3000);
         limpiarPantalla();
-        SQLiteDB.crearTablas(SQLiteDB.conectar());
+//        SQLiteDB.crearTablas();
     }
 
     /**

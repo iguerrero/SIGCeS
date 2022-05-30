@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Medico extends Usuario{
 
-    private String idMedico;
+    private int idMedico;
     private String clave;
     private String matriculaProv;
     private String matriculaNac;
@@ -45,6 +45,15 @@ public class Medico extends Usuario{
     /*
      * getters y setters de la clase
      */
+
+    public int obtenerIdMedico() {
+        return idMedico;
+    }
+
+    public void establecerIdMedico(int idMedico) {
+        this.idMedico = idMedico;
+    }
+
     public String obtenerClave() { return clave; }
 
     public void establecerClave(String clave) {
@@ -72,25 +81,5 @@ public class Medico extends Usuario{
     public void establecerEspecialidades(String especialidades) {
         this.especialidades = especialidades;
     }
-    /**
-     * TODO
-     */
-    public void verPaciente() {  }
-    /**
-     * TODO
-     */
-    public void gestionarAgenda() {  }
-    /**
-     * TODO
-     */
-    public void verHistoriaClinica() {  }
-    /**
-     * TODO
-     */
-    public void cargarDiagnóstico() {  }
-    /**
-     * TODO
-     */
-    public static void verTurnosHoy(String idMedico) {  }
 
 }

@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos.">
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" afterDir="false" />
+    <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Modificaciones menores">
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,24 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;exceleditor.install&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lord Vader/IdeaProjects/sqlite-jdbc-3.7.2.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.10687023&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "exceleditor.install": "true",
+    "last_opened_file_path": "C:/Users/Lord Vader/IdeaProjects/threeten-extra-1.7.0.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.10687023",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Lord Vader\IdeaProjects\SIGCeS\src" />
@@ -235,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653849920117</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Modificaciones menores">
+      <created>1653853881722</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653853881722</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +279,8 @@
     <MESSAGE value="Cambié el tipo de la variable 'clave' de int a String.&#10;Dejé funcionando el método cargarMedico()" />
     <MESSAGE value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
     <MESSAGE value="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos." />
+    <MESSAGE value="Modificaciones menores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificaciones menores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

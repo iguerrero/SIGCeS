@@ -1,14 +1,20 @@
 package edu.grupo9.sigces;
 
 import java.time.LocalDate;
+import org.threeten.extra.*;
 
+enum Estado {
+    LIBRE, CONSULTA, PRACTICA, CIRUGIA, NOLABOR
+}
 public class Turno {
 
     private String idTurno;
     private String idPaciente;
     private String idAgenda;
-    private LocalDate diaYhora;
-    private LocalDate estado;
+    private LocalDate diaHora;
+    private Interval turno;
+    private int duracion;
+    private Estado estado;
 
 
     public Turno() {
@@ -38,19 +44,37 @@ public class Turno {
         this.idAgenda = idAgenda;
     }
 
-    public LocalDate obtenerDiaYhora() {
-        return diaYhora;
+    public LocalDate obtenerDiaHora() {
+        return diaHora;
     }
 
-    public void establecerDiaYhora(LocalDate diaYhora) {
-        this.diaYhora = diaYhora;
+    public void establecerDiaHora(LocalDate diaHora) {
+        this.diaHora = diaHora;
     }
 
-    public LocalDate obtenerEstado() {
+    public Interval obtenerTurno() {
+        return turno;
+    }
+
+    public void establecerTurno(Interval turno) {
+        this.turno = turno;
+    }
+
+    public int obtenerDuracion() {
+        return duracion;
+    }
+
+    public void establecerDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public Estado obtenerEstado() {
         return estado;
     }
 
-    public void establecerEstado(LocalDate estado) {
+    public void establecerEstado(Estado estado) {
         this.estado = estado;
     }
 }
+
+

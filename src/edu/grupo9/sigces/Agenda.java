@@ -1,23 +1,19 @@
 package edu.grupo9.sigces;
 
+import org.threeten.extra.Interval;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-enum dias {
-    LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
-}
+import java.util.List;
 
 public class Agenda {
 
+    enum Dia {
+        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+    }
     private static String idAgenda;
-    private int diaSemana;
-    private LocalDate fechaInicio;
-    private LocalDate fechaVigencia;
-    private int duracionIntevalo;
-    private LocalDate horaInicio1;
-    private LocalDate horaFin1;
-    private LocalDate horaInicio2;
-    private LocalDate horaFin2;
+    private LocalDate fecha;
+    private ArrayList<Interval> intevalos;
     private ArrayList<Integer> turnos;
 
     public Agenda() {
@@ -31,68 +27,20 @@ public class Agenda {
         Agenda.idAgenda = idAgenda;
     }
 
-    public int obtenerDiaSemana() {
-        return diaSemana;
+    public LocalDate obtenerFecha() {
+        return fecha;
     }
 
-    public void establecerDiaSemana(int diaSemana) {
-        this.diaSemana = diaSemana;
+    public void establecerFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
-    public LocalDate obtenerFechaInicio() {
-        return fechaInicio;
+    public ArrayList<Interval> obtenerIntevalos() {
+        return intevalos;
     }
 
-    public void establecerFechaInicio(LocalDate fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public LocalDate obtenerFechaVigencia() {
-        return fechaVigencia;
-    }
-
-    public void establecerFechaVigencia(LocalDate fechaVigencia) {
-        this.fechaVigencia = fechaVigencia;
-    }
-
-    public int obtenerDuracionIntevalo() {
-        return duracionIntevalo;
-    }
-
-    public void establecerDuracionIntevalo(int duracionIntevalo) {
-        this.duracionIntevalo = duracionIntevalo;
-    }
-
-    public LocalDate obtenerHoraInicio1() {
-        return horaInicio1;
-    }
-
-    public void establecerHoraInicio1(LocalDate horaInicio1) {
-        this.horaInicio1 = horaInicio1;
-    }
-
-    public LocalDate obtenerHoraFin1() {
-        return horaFin1;
-    }
-
-    public void establecerHoraFin1(LocalDate horaFin1) {
-        this.horaFin1 = horaFin1;
-    }
-
-    public LocalDate obtenerHoraInicio2() {
-        return horaInicio2;
-    }
-
-    public void establecerHoraInicio2(LocalDate horaInicio2) {
-        this.horaInicio2 = horaInicio2;
-    }
-
-    public LocalDate obtenerHoraFin2() {
-        return horaFin2;
-    }
-
-    public void establecerHoraFin2(LocalDate horaFin2) {
-        this.horaFin2 = horaFin2;
+    public void establecerIntevalos(ArrayList<Interval> intevalos) {
+        this.intevalos = intevalos;
     }
 
     public ArrayList<Integer> obtenerTurnos() {

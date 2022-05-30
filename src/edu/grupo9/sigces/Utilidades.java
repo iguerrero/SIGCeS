@@ -46,4 +46,16 @@ public class Utilidades {
         }
     }
 
+    /**
+     * En este caso, valida que la clave sea numérica y de 4 dígitos.
+     * Se puso aparte para poder modificar el método de validación sin
+     * tener que tocar el código.
+     * @param clave
+     * @return boolean
+     */
+    public static boolean validarClave(String clave) {
+        return clave.length() == 4;
+    }
+
+
 }

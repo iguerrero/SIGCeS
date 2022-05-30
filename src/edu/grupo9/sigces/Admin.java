@@ -9,11 +9,12 @@ import static edu.grupo9.sigces.Utilidades.*;
 
 public class Admin extends Usuario implements VarsGlobales {
 
-    private static String idAdmin;
+    private int idAdmin;
     private String clave;
 
-   /* * * CONSTRUCTORES * * */
-    public Admin() {}
+    /* * * CONSTRUCTORES * * */
+    public Admin() {
+    }
 
     public Admin(String nombre,
                  String apellido,
@@ -23,11 +24,7 @@ public class Admin extends Usuario implements VarsGlobales {
                  String telefono,
                  String email,
                  LocalDate fechaNac,
-                 char sexo,
-                 String s1,
-                 String s2,
-                 String s3) //s1, s2, s3 sin definir aún.
-    {
+                 char sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -40,9 +37,15 @@ public class Admin extends Usuario implements VarsGlobales {
     }
 
     /* * * GETTERS Y SETTERS * * */
+
+    public int obtenerIdAdmin() { return idAdmin; }
+
+    public void establecerIdAdmin(int idAdmin) { this.idAdmin = idAdmin; }
+
     public String obtenerClave() {
         return clave;
     }
+
     public void establecerClave(String clave) {
         this.clave = clave;
     }
@@ -60,12 +63,10 @@ public class Admin extends Usuario implements VarsGlobales {
                 datosAdmin.get(6),
                 datosAdmin.get(7),
                 LocalDate.parse(datosAdmin.get(8), formatter),
-                datosAdmin.get(9).charAt(0),
-                datosAdmin.get(10),
-                datosAdmin.get(11),
-                datosAdmin.get(12)
+                datosAdmin.get(9).charAt(0)
         );
     }
+
     static void menuAdmin(Admin admin) {
         limpiarPantalla();
         String tratamiento = String.valueOf(admin.obtenerSexo()).equals("M") ? "Bienvenido, " : "Bienvenida, ";
@@ -93,7 +94,7 @@ public class Admin extends Usuario implements VarsGlobales {
                 \033[31m4. Gestionar Agenda\033[0m
                 5. Volver al menú anterior""");
 
-        switch (seleccion()){
+        switch (seleccion()) {
             case 1 -> cargarNuevoMedico();
             case 2 -> modificarMedico();
             case 3 -> eliminarMedico();
@@ -102,7 +103,7 @@ public class Admin extends Usuario implements VarsGlobales {
     }
 
     /**
-     *  Crear un nuevo objeto Medico
+     * Crear un nuevo objeto Medico
      */
     public static void cargarNuevoMedico() {
         System.out.println("Por favor, ingrese los datos del nuevo Médico.");
@@ -116,7 +117,9 @@ public class Admin extends Usuario implements VarsGlobales {
         System.out.print("DNI: ");
         medico.establecerDni(scanner.nextInt());
         String claveValida;
-        while (!validarClave(claveValida = scanner.nextLine())){ System.out.println("Clave (debe tener 4 dígitos):");}
+        while (!validarClave(claveValida = scanner.nextLine())) {
+            System.out.println("Clave (debe tener 4 dígitos):");
+        }
         medico.establecerClave(claveValida);
         System.out.print("Domicilio: ");
         medico.establecerDomicilio(scanner.nextLine());
@@ -139,10 +142,11 @@ public class Admin extends Usuario implements VarsGlobales {
 
     /**
      * Cargar los datos del objeto Medico en un arreglo
+     *
      * @param medico Medico
      * @return <i>ArrayList</i> con los <b>datos</b> del objeto Medico
      */
-    public static String establecerDatos (Medico medico) {
+    public static String establecerDatos(Medico medico) {
         ArrayList<String> datos = new ArrayList<>();
         try {
             datos.add(String.valueOf(contarLineas(planillaMedicos)));
@@ -162,11 +166,12 @@ public class Admin extends Usuario implements VarsGlobales {
         datos.add(medico.obtenerMatriculaNac());
         datos.add(medico.obtenerEspecialidades());
         System.out.println("Datos establecidos");
-        return datos.toString().replace("[", "").replace("]", "").replace(",",";");
+        return datos.toString().replace("[", "").replace("]", "").replace(",", ";");
     }
 
     /**
      * Cargar los datos en una nueva línea en la planilla medicos.csv
+     *
      * @param nuevaLinea
      * @param planilla
      */
@@ -178,7 +183,7 @@ public class Admin extends Usuario implements VarsGlobales {
             bw.flush();
             bw.close();
         } catch (Exception e) {
-
+            System.err.println(e.getMessage());
         }
     }
 
@@ -225,13 +230,13 @@ public class Admin extends Usuario implements VarsGlobales {
             }
             br.close();
             System.out.print("""
-                        Por favor, confirme la operación.\s
-                        Está a punto de eliminar a: \s""");
+                    Por favor, confirme la operación.\s
+                    Está a punto de eliminar a: \s""");
             System.out.println(porEliminar);
             System.out.println("""
-                        1. Sí \s
-                        2. No
-                        """);
+                    1. Sí \s
+                    2. No
+                    """);
             int seleccion = scanner.nextInt();
             if (seleccion == 1) {
                 BufferedWriter bw = new BufferedWriter(new FileWriter(planillaMedicos));
@@ -244,15 +249,18 @@ public class Admin extends Usuario implements VarsGlobales {
             }
             gestionarMedicos();
         } catch (IOException f) {
-
+            System.err.println(f.getMessage());
         }
     }
 
-    public static void gestionarPacientes() {}
+    public static void gestionarPacientes() {
+    }
 
-    public static void gestionarTurnos() {}
+    public static void gestionarTurnos() {
+    }
 
-    public static void gestionarAdmins() {}
+    public static void gestionarAdmins() {
+    }
 
     public static ArrayList<String> leerCSV(String nombre, String apellido, String planilla) {
         // Abre planilla y lee cada línea.
@@ -270,19 +278,9 @@ public class Admin extends Usuario implements VarsGlobales {
                 }
             }
         } catch (Exception e) {
-
+            System.err.println(e.getMessage());
         }
         return null;
     }
-
-    /**
-     * En este caso, valida que la clave sea numérica y de 4 dígitos.
-     * Se puso aparte para poder modificar el método de validación sin
-     * tener que tocar el código.
-     * @param clave
-     * @return boolean
-     */
-    public static boolean validarClave(String clave) {
-        return clave.length() == 4;
-    }
 }
+
