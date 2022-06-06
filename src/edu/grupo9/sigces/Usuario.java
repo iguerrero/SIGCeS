@@ -17,7 +17,7 @@ public abstract class Usuario {
     protected String telefono;
     protected String email;
     protected LocalDate fechaNac;
-    protected char sexo;
+    protected String sexo;
 
     protected Usuario() {}
 
@@ -28,7 +28,7 @@ public abstract class Usuario {
                    String telefono,
                    String email,
                    LocalDate fechaNac,
-                   char sexo) {
+                   String sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -96,11 +96,11 @@ public abstract class Usuario {
         return fechaNac;
     }
 
-    public void establecerSexo(char sexo) {
+    public void establecerSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public char obtenerSexo() {
+    public String obtenerSexo() {
         return sexo;
     }
 }

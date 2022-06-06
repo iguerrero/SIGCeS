@@ -75,6 +75,23 @@ public class SQLiteDB {
                     "  sexo CHAR(1) DEFAULT 'M'" +
                     ");");
 
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS turnos (\n" +
+                    "  idTurno INTEGER PRIMARY KEY," +
+                    "  timestamp DATE NOT NULL," +
+                    "  fecha DATE NOT NULL," +
+                    "  hora DATE NOT NULL," +
+                    "  estado VARCHAR(15) NOT NULL," +
+                    "  idPaciente INTEGER," +
+                    "  idAgenda INTEGER NOT NULL" +
+                    ");");
+
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS agendas (\n" +
+                    "  idAgenda INTEGER PRIMARY KEY," +
+                    "  idMedico INTEGER NOT NULL," +
+                    "  diaLaborable VARCHAR(10)," +
+                    "  intervaloLaborable VARCHAR(30)" +
+                    ");");
+
         } catch (Exception e) {
             // if the error message is "out of memory",
             // it probably means no database file is found

@@ -4,28 +4,39 @@ import edu.grupo9.sigces.SQLiteDB;
 import org.threeten.extra.Interval;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AgendaDaoImpl extends SQLiteDB implements AgendaDao {
 
     @Override
-    public ArrayList<Interval> listarTurnos(int idMedico, LocalDate fecha) {
+    public void buscarAgenda(int idMedico, String diaLaborable) {
         conectar();
+        PreparedStatement statement = null;
         try {
-            PreparedStatement agd = connection.prepareStatement("SELECT * FROM agendas WHERE idMedico = ? AND fecha = ?");
-            agd.setInt(1, idMedico);
-            agd.setObject(2,fecha);
-            agd.executeQuery();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
+            statement = connection.prepareStatement("SELECT * FORM agendas WHERE idMedico = ? AND diaLaborable = ?");
+            statement.setInt(1, idMedico);
+            statement.setString(2, diaLaborable);
+            statement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        cerrarConexion();
-        return null;
     }
 
     @Override
-    public void establecerDiasLaborables() {
+    public void establecerDiasLaborables(int idMedico, String diasLaborables, Interval intervaloLaborable) {
+        conectar();
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("INSERT IN agendas (idMedico, diasLaborables, intervaloLaborable) VALUES(?, ?, ?)");
+            statement.setInt(1, idMedico);
+            statement.setString(2, diasLaborables);
+            statement.setString(2, intervaloLaborable.toString());
+            statement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

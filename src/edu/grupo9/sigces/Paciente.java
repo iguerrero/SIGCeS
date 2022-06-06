@@ -21,7 +21,7 @@ public class Paciente extends Usuario{
                     String telefono,
                     String email,
                     LocalDate fechaNac,
-                    char sexo) {
+                    String sexo) {
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;

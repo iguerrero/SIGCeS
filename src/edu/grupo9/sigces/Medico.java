@@ -16,7 +16,8 @@ public class Medico extends Usuario{
      */
     public Medico() {}
 
-    public Medico(String nombre,
+    public Medico(int idMedico,
+                  String nombre,
                   String apellido,
                   int dni,
                   String clave,
@@ -24,10 +25,11 @@ public class Medico extends Usuario{
                   String telefono,
                   String email,
                   LocalDate fechaNac,
-                  char sexo,
+                  String sexo,
                   String matriculaProv,
                   String matriculaNac,
                   String especialidades) {
+        this.idMedico = idMedico;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;

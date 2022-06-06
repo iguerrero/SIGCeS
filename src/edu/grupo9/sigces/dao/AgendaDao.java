@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public interface AgendaDao {
-
-    ArrayList<Interval> listarTurnos(int idMedico, LocalDate fecha);
-    void establecerDiasLaborables();
+    void buscarAgenda(int idMedico, String diasLaborables);
+    void establecerDiasLaborables(int idMedico, String diasLaborables, Interval intervaloLaborable);
 }
