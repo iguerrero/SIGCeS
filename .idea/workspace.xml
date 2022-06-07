@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Terminados los métodos de las clases MedicoDao y AdminDao. Falta aún depurar las clases Medico, Admin y Main. La aplicación NO COMPILA en este momento.">
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Sesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/SesionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/SesionDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admins - copia.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admins.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Paciente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Utilidades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/VarsGlobales.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medicos - copia.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicos - copia.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medicos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/medicos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/medicos.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sigces.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sigces.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653933565528</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Terminados los métodos de las clases MedicoDao y AdminDao. Falta aún depurar las clases Medico, Admin y Main. La aplicación NO COMPILA en este momento.">
+      <created>1654482230265</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654482230266</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,21 +294,32 @@
     <MESSAGE value="Migrado el menúAdmin de la clase Main a la clase Admin.&#10;Implementado el método eliminarMedico()" />
     <MESSAGE value="Creadas interfases DAO y sus implementaciones. Faltan los métodos.&#10;Creada base de datos." />
     <MESSAGE value="Modificaciones menores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificaciones menores" />
+    <MESSAGE value="Terminados los métodos de las clases MedicoDao y AdminDao. Falta aún depurar las clases Medico, Admin y Main. La aplicación NO COMPILA en este momento." />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminados los métodos de las clases MedicoDao y AdminDao. Falta aún depurar las clases Medico, Admin y Main. La aplicación NO COMPILA en este momento." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDaoImpl.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="8" />
+          <line>469</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="pacientes" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

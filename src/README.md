@@ -39,8 +39,18 @@ También implementa el código Java que da resolución a la situación problemática,
 
 Esta etapa es GRUPAL
 
-Para esta etapa hemos optado en implementar una base de datos **SQLite** junto con un patrón de diseño **DAO** (Data Access Object)
+Para esta etapa hemos optado en implementar una base de datos **SQLite** para reemplazar los archivos CSV que guardaban la información de los usuarios.
+Además, migramos los métodos a un patrón de diseño **DAO** (Data Access Object)
 
+- Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
+- Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.
+- Las opciones de menú en <span style="color:red">rojo</span> aún no fueron implementadas.
 - La base de datos **sigces.db** se encuentra dentro de la carpeta **src**.
-- Se adjunta el driver **sqlite-jdbc-3.7.2.jar**.
-- Se adjunta la herramienta **SQLiteStudio** para trabajar con la base de datos fuera de la aplicación.
+- Se adjunta el driver **sqlite-jdbc-3.7.2.jar**, que administra la base de datos.
+- Se adjunta el paquete **threeten-extra-1.7.0.jar** que se utilizará en el manejo de turnos y agenda.
+- Se adjunta la herramienta **SQLiteStudio** para facilitar el trabajo con la base de datos fuera de la aplicación.
+
+### Estado del Proyecto:
+Hasta el momento, se encuentra funcional la gestión CRUD de Admins, Pacientes y Médicos.
+
+Por el momento, NO se encuentra funcional la gestión de turnos e historias clínicas.

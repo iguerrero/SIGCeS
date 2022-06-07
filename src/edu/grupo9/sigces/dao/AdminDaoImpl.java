@@ -307,10 +307,10 @@ public class AdminDaoImpl extends SQLiteDB implements AdminDao {
             res = med.executeQuery();
             if (res.next()) {
                 sesion = new Sesion(res.getInt(1),
-                    res.getString(2),
-                    res.getString(3),
-                    "Admin",
-                    res.getString(10));
+                        res.getString(2),
+                        res.getString(3),
+                        "Admin",
+                        res.getString(10));
             } else if (res.wasNull() && intento > 2){
                 System.out.println("Usuario o contraseña no coinciden. Vuelva a intentarlo.");
                 loginAdmin(intento++);

@@ -5,18 +5,14 @@ import java.time.Period;
 
 public class Paciente extends Usuario{
 
-    private String idPaciente;
+    private int idPaciente;
     private static int edad;
-    private int clave;
 
-    public Paciente() {
-
-    }
+    public Paciente() {}
 
     public Paciente(String nombre,
                     String apellido,
                     int dni,
-                    int clave,
                     String domicilio,
                     String telefono,
                     String email,
@@ -25,7 +21,6 @@ public class Paciente extends Usuario{
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
-            this.clave = clave;
             this.domicilio = domicilio;
             this.telefono = telefono;
             this.email = email;
@@ -33,11 +28,11 @@ public class Paciente extends Usuario{
             this.sexo = sexo;
     }
 
-    public String obtenerIdPaciente() {
+    public int obtenerIdPaciente() {
         return idPaciente;
     }
 
-    public void establecerIdPaciente(String idPaciente) {
+    public void establecerIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
 

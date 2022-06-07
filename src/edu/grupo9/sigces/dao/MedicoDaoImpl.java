@@ -227,8 +227,6 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
             st.setString(12, medico.obtenerEspecialidades());
             st.setInt(13, medico.obtenerIdMedico());
             st.executeUpdate();
-//                    'René', 'Favaloro', 4567890, '1234', 'Av. Belgrano 1746', '011 43781200', " +
-//                    "'rene@favaloro.com', 1928-07-12, 'M', '11111', '11111', 'Cardiología')");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         } finally {
@@ -372,14 +370,16 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
 
     @Override
     public Sesion loginMedico(int intento) {
+//        SesionDao ses = new SesionDaoImpl();
         Sesion sesion = null;
         System.out.println("Ingrese su usuario y contraseña.");
         Scanner sc = new Scanner(System.in);
         System.out.print("DNI: ");
         int dni = sc.nextInt();
+        sc.nextLine(); // Esto es debido a un bug de la clase Scanner.
         System.out.print("Contraseña: ");
         String clave = sc.nextLine();
-        sc.close();
+//        sc.close(); // Por alguna razón, cerrar el scanner genera una excepsión.
         conectar();
         ResultSet res;
         try {
@@ -399,7 +399,6 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
             } else {
                 Main.bienvenida();
             }
-
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

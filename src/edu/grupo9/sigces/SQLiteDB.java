@@ -3,6 +3,8 @@ package edu.grupo9.sigces;
 import java.io.File;
 import java.sql.*;
 
+import static edu.grupo9.sigces.Utilidades.limpiarPantalla;
+
 public class SQLiteDB {
     protected static Connection connection = null;
 
@@ -38,7 +40,6 @@ public class SQLiteDB {
                     "  nombre VARCHAR(50) NOT NULL," +
                     "  apellido VARCHAR(50) NOT NULL," +
                     "  dni INT NOT NULL UNIQUE," +
-                    "  clave VARCHAR(32) NOT NULL," +
                     "  domicilio VARCHAR(50) NOT NULL," +
                     "  telefono VARCHAR(50) NOT NULL," +
                     "  email VARCHAR(50) NOT NULL UNIQUE," +
@@ -124,6 +125,19 @@ public class SQLiteDB {
             throw new RuntimeException(e);
         } finally {
             cerrarConexion();
+        }
+    }
+    public static void imprimirResultSet(ResultSet rs) throws SQLException    {
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnsNumber = rsmd.getColumnCount();
+        limpiarPantalla();
+        rs.beforeFirst();
+        while (rs.next()) {
+            for (int i = 1; i <= columnsNumber; i++) {
+                if (i > 1) System.out.print(" | ");
+                System.out.print(rs.getString(i));
+            }
+            System.out.println("");
         }
     }
 }
