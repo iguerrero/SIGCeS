@@ -1,7 +1,6 @@
 package edu.grupo9.sigces;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Medico extends Usuario{
 

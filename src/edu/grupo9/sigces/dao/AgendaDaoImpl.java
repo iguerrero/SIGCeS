@@ -5,8 +5,6 @@ import org.threeten.extra.Interval;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class AgendaDaoImpl extends SQLiteDB implements AgendaDao {
 

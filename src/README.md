@@ -45,8 +45,8 @@ Además, migramos los métodos a un patrón de diseño **DAO** (Data Access Object)
 - Para ingresar como Médico, utilizar el DNI 32123123 y la CLAVE 1234.
 - Para ingresar como Admin, utilizar el DNI 38111222 y la CLAVE 1234.
 - Las opciones de menú en <span style="color:red">rojo</span> aún no fueron implementadas.
-- La base de datos **sigces.db** se encuentra dentro de la carpeta **src**.
-- Se adjunta el driver **sqlite-jdbc-3.7.2.jar**, que administra la base de datos.
+- La base de datos <span style="color:cyan">**sigces.db**</span> se encuentra dentro de la carpeta **src**.
+- Se adjunta el driver <span style="color:cyan">**[sqlite-jdbc-3.7.2.jar]()**</span>, que administra la base de datos.
 - Se adjunta el paquete **threeten-extra-1.7.0.jar** que se utilizará en el manejo de turnos y agenda.
 - Se adjunta la herramienta **SQLiteStudio** para facilitar el trabajo con la base de datos fuera de la aplicación.
 
@@ -54,3 +54,5 @@ Además, migramos los métodos a un patrón de diseño **DAO** (Data Access Object)
 Hasta el momento, se encuentra funcional la gestión CRUD de Admins, Pacientes y Médicos.
 
 Por el momento, NO se encuentra funcional la gestión de turnos e historias clínicas.
+
+Debido a esto, el perfil <span style="color:cyan">**Médico**</span> no hace prácticamente nada, por lo cual se recomienda probar las funcionalidades del perfil <span style="color:cyan">**Administrador**</span>.

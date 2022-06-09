@@ -191,7 +191,7 @@ public class Main{
                 medico = med.buscarMedicoPorId(id);
                 med.modificar(medico);
             }
-            case 0 -> { gestionarMedicos(sesion); }
+            case 0 -> gestionarMedicos(sesion);
         }
     }
 
@@ -245,7 +245,7 @@ public class Main{
                 sc.close();
                 med.borrar(med.buscarMedicoPorId(id));
             }
-            case 0 -> { gestionarMedicos(sesion); }
+            case 0 -> gestionarMedicos(sesion);
         }
     }
 
@@ -316,7 +316,7 @@ public class Main{
                 admin = adm.buscarAdminPorId(id);
                 adm.modificar(admin);
             }
-            case 0 -> { gestionarAdmins(sesion); }
+            case 0 -> gestionarAdmins(sesion);
         }
     }
 
@@ -366,7 +366,7 @@ public class Main{
                 int id = scanner.nextInt();
                 adm.borrar(adm.buscarAdminPorId(id));
             }
-            case 0 -> { gestionarAdmins(sesion); }
+            case 0 -> gestionarAdmins(sesion);
         }
         scanner.close();
     }
@@ -436,15 +436,8 @@ public class Main{
                 paciente = pct.buscarPacientePorId(id);
 
             }
-            case 0 -> { gestionarPacientes(sesion); }
+            case 0 -> gestionarPacientes(sesion);
         }
-//        System.out.println("¿Continuar? (Enter) ");
-//        String continuar = scanner.nextLine();
-//        switch (continuar.toUpperCase()) {
-//            case "" -> {
-//                gestionarPacientes(sesion);
-//            }
-//        }
     }
 
     private static void eliminarPaciente(Sesion sesion) {
@@ -491,7 +484,7 @@ public class Main{
                 paciente = pct.buscarPacientePorId(id);
                 pct.borrar(paciente);
             }
-            case 0 -> { gestionarPacientes(sesion); }
+            case 0 -> gestionarPacientes(sesion);
         }
     }
 
@@ -539,7 +532,7 @@ public class Main{
                 paciente = pct.buscarPacientePorId(id);
                 pct.modificar(paciente);
             }
-            case 0 -> { gestionarPacientes(sesion); }
+            case 0 -> gestionarPacientes(sesion);
         }
     }
 

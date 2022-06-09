@@ -1,6 +1,5 @@
 package edu.grupo9.sigces.dao;
 
-import edu.grupo9.sigces.Medico;
 import edu.grupo9.sigces.Paciente;
 
 import java.util.ArrayList;
