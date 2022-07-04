@@ -1,10 +1,11 @@
 package edu.grupo9.sigces.dao;
 
 import edu.grupo9.sigces.Main;
-import edu.grupo9.sigces.Medico;
+import edu.grupo9.sigces.objects.Medico;
 import edu.grupo9.sigces.SQLiteDB;
-import edu.grupo9.sigces.Sesion;
+import edu.grupo9.sigces.objects.Sesion;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
@@ -248,18 +249,16 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
     }
 
     @Override
-    public ArrayList<Medico> buscarMedicosPorNombre(String nombre, String apellido) {
+    public Medico buscarMedicosPorNombre(String nombre, String apellido) {
         ArrayList<Medico> medicos = null;
-        conectar();
-        ResultSet res = null;
-        int id = 0;
+
         try {
-            PreparedStatement med = connection.prepareStatement("SELECT * FROM medicos WHERE nombre = ? AND apellido = ?");
-            med.setString(1, nombre);
-            med.setString(2, apellido);
-            med.executeQuery();
+            conectar();
+            PreparedStatement st = connection.prepareStatement("SELECT * FROM medicos WHERE nombre = ? AND apellido = ?");
+            st.setString(1, nombre);
+            st.setString(2, apellido);
+            ResultSet res = st.executeQuery();
             cerrarConexion();
-            res = med.getResultSet();
             if (res != null) {
                 while (res.next()) {
                     medico = new Medico(res.getInt(1),
@@ -284,8 +283,21 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        cerrarConexion();
-        return medicos;
+        if (medicos.size() == 1) {
+            medico = buscarMedicoPorId(medicos.get(0).obtenerIdMedico());
+        } else if (medicos.size() > 1) {
+            System.out.println("""
+                    Se encontraron más de una persona con esos datos.
+                    Por favor, elija la que desea por su identificador.
+                    """);
+            for (Medico cadaMed : medicos) {
+                System.out.println(cadaMed.toString());
+            }
+            Scanner scanner = new Scanner(System.in);
+            medico = buscarMedicoPorId(scanner.nextInt());
+
+        }
+        return medico;
     }
 
     @Override
@@ -297,14 +309,10 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
         String especialidad = sc.nextLine();
         sc.close();
         conectar();
-        ResultSet res = null;
-        int id = 0;
         try {
             PreparedStatement med = connection.prepareStatement("SELECT * FROM medicos WHERE especialidades = ?");
             med.setString(1, especialidad);
-            med.executeQuery();
-            cerrarConexion();
-            res = med.getResultSet();
+            ResultSet res = med.executeQuery();
             if (res != null) {
                 while (res.next()) {
                     medico = new Medico(res.getInt(1),
@@ -335,14 +343,12 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
 
     @Override
     public Medico buscarMedicoPorId(int id) {
-        conectar();
-        ResultSet res;
         try {
-            PreparedStatement med = connection.prepareStatement("SELECT * FROM medicos WHERE idMedico = ?");
-            med.setInt(1, id);
-            med.executeQuery();
-            cerrarConexion();
-            res = med.getResultSet();
+            conectar();
+            PreparedStatement st = connection.prepareStatement("SELECT * FROM medicos WHERE idMedico = ?");
+            st.setInt(1, id);
+            ResultSet res = st.executeQuery();
+
             if (res != null) {
                 medico = new Medico(res.getInt(1),
                         res.getString(2),
@@ -359,12 +365,12 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
                         res.getString(13));
             } else {
                 System.out.println("Médico inexistente");
-                return null;
+                return medico;
             }
+            cerrarConexion();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        cerrarConexion();
         return medico;
     }
 
@@ -404,5 +410,46 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
         }
         cerrarConexion();
         return sesion;
+    }
+
+    /**
+     * Devuelve una lista de turnos para este día.
+     * @param sesion
+     */
+    public static void verAgendaDiaria(Sesion sesion) {
+        conectar();
+        ResultSet agendaRes;
+        ResultSet turnosRes;
+        ResultSet pacienteRes;
+        int agendaHoy = 0;
+        ArrayList<Integer> turnosHoy = new ArrayList<>();
+        try {
+            PreparedStatement agenda = connection.prepareStatement("SELECT idAgenda FROM agendas WHERE idMedico = ? AND fecha = ?");
+            agenda.setInt(1, sesion.obtenerIdSesion());
+            agenda.setDate(2, Date.valueOf(LocalDate.now()));
+            agendaRes = agenda.executeQuery();
+            if (agendaRes != null) {
+                agendaHoy = agendaRes.getInt(1);
+            }
+
+            PreparedStatement turnos = connection.prepareStatement("SELECT * FROM turnos WHERE idAgenda = ? ORDER BY hora;");
+            turnos.setInt(1, agendaHoy);
+            turnosRes = turnos.executeQuery();
+
+            if (turnosRes != null) {
+                while (turnosRes.next()) {
+                    PreparedStatement paciente = connection.prepareStatement(("SELECT apellido, nombre FORM pacientes WHERE idPaciente = ?;"));
+                    paciente.setInt(1, turnosRes.getInt(6));
+                    pacienteRes = paciente.executeQuery();
+                    System.out.println(turnosRes.getDate(4) + " | " + pacienteRes.getString(3) + ", " + pacienteRes.getString(2));
+                }
+            } else {
+                System.out.println("No hay turno en la agenda de hoy.");
+            }
+            cerrarConexion();
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 }

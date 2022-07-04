@@ -6,11 +6,19 @@
 package edu.grupo9.sigces;
 
 import edu.grupo9.sigces.dao.*;
+//import edu.grupo9.sigces.gui.GUI;
+import edu.grupo9.sigces.objects.Admin;
+import edu.grupo9.sigces.objects.Medico;
+import edu.grupo9.sigces.objects.Paciente;
+import edu.grupo9.sigces.objects.Sesion;
 
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static edu.grupo9.sigces.Utilidades.*;
+import static edu.grupo9.sigces.dao.MedicoDaoImpl.verAgendaDiaria;
 
 
 /**
@@ -19,13 +27,13 @@ import static edu.grupo9.sigces.Utilidades.*;
  * @Date: 27/04/2022 <br>
  * Puede verse online en <a href="https://github.com/iguerrero21/SIGCeS">Github</a>.
  */
-public class Main{
+public class Main {
 
     private static Sesion sesion;
 
     /**
      * Pantalla de Bienvenida.
-     * Funciona correctamente.
+     * Inicio de la aplicación.
      */
     public static void bienvenida() {
 
@@ -40,14 +48,14 @@ public class Main{
                 Sistema Integral de Gestión de Centros de Salud""");
         dormirPor(3000);
         limpiarPantalla();
+        /* El código comentado sirve para cargar la base de datos la primera vez. */
 //        conectar();
 //        SQLiteDB.crearTablas();
 //        SQLiteDB.agregarDatos();
     }
 
     /**
-     * Selecciona entre usuario Médico y usuario Admin.
-     * Funciona correctamente
+     * Menú inicial. Selecciona entre usuario Médico y usuario Admin.
      */
     public static void menuInicio(Sesion sesion) {
         try{
@@ -93,7 +101,6 @@ public class Main{
 
     /**
      * Muestra la opciones del perfil Administrador.
-     * Funciona correctamente
      * @param sesion Mantiene una sesión abierta.
      */
     public static void menuAdmin(Sesion sesion) {
@@ -124,6 +131,7 @@ public class Main{
         System.exit(0);
     }
 
+    /* Gestión CRUD de Médicos desde el perfil Admin. */
     public static void gestionarMedicos(Sesion sesion) {
 //        Medico medico = null;
         System.out.println("""
@@ -131,15 +139,17 @@ public class Main{
                 1. Cargar un nuevo Médico \s
                 2. Modificar Datos \s
                 3. Eliminar Médico \s
-                \033[31m4. Gestionar Agenda\033[0m \s
+                4. Gestionar Agenda \s
                 0. Volver al menú anterior \s
                 """);
 
         MedicoDao med = new MedicoDaoImpl();
+        AgendaDao agd = new AgendaDaoImpl();
         switch (seleccion()) {
             case 1 -> { med.cargarNuevo(); gestionarMedicos(sesion); }
             case 2 -> modificarMedico(sesion);
             case 3 -> eliminarMedico(sesion);
+            case 4 -> agd.gestionarAgenda(sesion);
             case 0 -> menuAdmin(sesion);
         }
     }
@@ -161,25 +171,13 @@ public class Main{
                 String nombre = scanner.nextLine();
                 System.out.print("Apellido: ");
                 String apellido = scanner.nextLine();
-                ArrayList<Medico> medicos = med.buscarMedicosPorNombre(nombre, apellido);
-                if (medicos.size() == 1) {
-                    medico = med.buscarMedicoPorId(medicos.get(0).obtenerIdMedico());
-                    med.modificar(medico);
-                } else if (medicos.size() > 1) {
-                    System.out.println("""
-                            Se encontraron más de una persona con esos datos.
-                            Por favor, elija la que desea por su identificador.
-                            """);
-                    for (Medico cadaMed : medicos) {
-                        System.out.println(cadaMed.toString());
-                    }
-                    medico = med.buscarMedicoPorId(scanner.nextInt());
-                    med.modificar(medico);
-                } else {
+                medico = med.buscarMedicosPorNombre(nombre, apellido);
+                if (medico == null) {
                     System.out.println("La persona no ha sido encontrada.");
                     dormirPor(2000);
                     gestionarMedicos(sesion);
                 }
+                med.modificar(medico);
                 scanner.close();
             }
             case 2 -> {
@@ -205,35 +203,23 @@ public class Main{
                 """);
         Scanner scanner = new Scanner(System.in);
         MedicoDao med = new MedicoDaoImpl();
-//        Medico medico = null;
+        Medico medico;
         switch (seleccion()) {
             case 1 -> {
                 System.out.print("Nombre: ");
                 String nombre = scanner.nextLine();
                 System.out.print("Apellido: ");
                 String apellido = scanner.nextLine();
-                ArrayList<Medico> medicos = med.buscarMedicosPorNombre(nombre, apellido);
-                if (medicos.size() == 1) {
-                    System.out.println("Usted está por eliminar el registro de: ");
-                    System.out.println(medicos.get(0).toString());
-                    System.out.println("¿Desea continuar? (S/N)");
-                    String acepta = scanner.nextLine().toUpperCase();
-                    if (acepta.equals("S")) {
-                        med.borrar(med.buscarMedicoPorId(medicos.get(0).obtenerIdMedico()));
-                        System.out.println("El registro ha sido eliminado.");
-                    } else {
-                        eliminarMedico(sesion);
-                    }
-
+                medico = med.buscarMedicosPorNombre(nombre, apellido);
+                System.out.println("Usted está por eliminar el registro de: ");
+                System.out.println(medico.toString());
+                System.out.println("¿Desea continuar? (S/N)");
+                String acepta = scanner.nextLine().toUpperCase();
+                if (acepta.equals("S")) {
+                    med.borrar(med.buscarMedicoPorId(medico.obtenerIdMedico()));
+                    System.out.println("El registro ha sido eliminado.");
                 } else {
-                    System.out.println("""
-                            Se encontraron más de una persona con esos datos.
-                            Por favor, elija la que desea por su identificador.
-                            """);
-                    for (Medico cadaMed : medicos) {
-                        System.out.println(cadaMed.toString());
-                    }
-                    med.borrar(med.buscarMedicoPorId(scanner.nextInt()));
+                    eliminarMedico(sesion);
                 }
                 scanner.close();
             }
@@ -249,8 +235,7 @@ public class Main{
         }
     }
 
-
-    /* GESTION de ADMINISTRADORES */
+    /* Gestión CRUD de Administradores desde el perfil Admin */
     public static void gestionarAdmins(Sesion sesion) {
         System.out.println("""
                 ¿Qué desea hacer? \s
@@ -371,6 +356,7 @@ public class Main{
         scanner.close();
     }
 
+    /* Gestión CRUD de Pacientes desde el perfil Admin */
     public static void gestionarPacientes(Sesion sesion) {
         System.out.println("""
                 ¿Qué desea hacer? \s
@@ -413,6 +399,13 @@ public class Main{
                 ArrayList<Paciente> pacientes = pct.buscarPacientePorNombre(nombre, apellido);
                 if (pacientes.size() == 1) {
                     paciente = pct.buscarPacientePorId(pacientes.get(0).obtenerIdPaciente());
+                    pct.imprimirPaciente(paciente);
+                    System.out.println("Oprima ENTER para continuar");
+                    try {
+                        System.in.read();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 } else if (pacientes.size() > 1) {
                     System.out.println("""
                             Se encontraron más de una persona con esos datos.
@@ -420,6 +413,12 @@ public class Main{
                             """);
                     for (Paciente cadaPct : pacientes) {
                         pct.imprimirPaciente(cadaPct);
+                    }
+                    System.out.println("Oprima ENTER para continuar");
+                    try {
+                        System.in.read();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                     paciente = pct.buscarPacientePorId(scanner.nextInt());
 
@@ -434,7 +433,13 @@ public class Main{
                 System.out.print("Id: ");
                 int id = scanner.nextInt();
                 paciente = pct.buscarPacientePorId(id);
-
+                pct.imprimirPaciente(paciente);
+                System.out.println("Oprima ENTER para continuar");
+                try {
+                    System.in.read();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
             case 0 -> gestionarPacientes(sesion);
         }
@@ -462,13 +467,17 @@ public class Main{
                     paciente = pct.buscarPacientePorId(pacientes.get(0).obtenerIdPaciente());
                     pct.borrar(paciente);
                 } else if (pacientes.size() > 1) {
-                    System.out.println("""
-                            Se encontraron más de una persona con esos datos.
-                            Por favor, elija la que desea por su identificador.
-                            """);
+                    System.out.println("Se encontraron más de una persona con esos datos.");
                     for (Paciente cadaPct : pacientes) {
                         pct.imprimirPaciente(cadaPct);
+                        System.out.println("ENTER para continuar");
+                        try {
+                            System.in.read();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
+                    System.out.println("Por favor, ingrese el Id de la persona que desea borrar.");
                     paciente = pct.buscarPacientePorId(scanner.nextInt());
                     pct.borrar(paciente);
                 } else {
@@ -516,6 +525,12 @@ public class Main{
                             """);
                     for (Paciente cadaPct : pacientes) {
                         pct.imprimirPaciente(cadaPct);
+                        System.out.println("Oprima ENTER para continuar");
+                        try {
+                            System.in.read();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     paciente = pct.buscarPacientePorId(scanner.nextInt());
                     pct.modificar(paciente);
@@ -536,9 +551,33 @@ public class Main{
         }
     }
 
+    /* Gestion CRUD de Turnos desde el perfil Admin */
     public static void gestionarTurnos() {
+        System.out.println("""
+                ¿Qué desea hacer? \s
+                1. Cargar un nuevo Turno \s
+                2. Modificar Turno \s
+                3. Eliminar Turno \s
+                4. Buscar Turnos \s
+                0. Volver al menú anterior \s
+                """);
+
+        TurnoDao trn = new TurnoDaoImpl();
+        AgendaDao agd = new AgendaDaoImpl();
+        switch (seleccion()) {
+            case 1 -> { trn.generarNuevoTurno(); gestionarTurnos(); }
+            case 2 -> { trn.modificarTurno(); gestionarTurnos(); }
+            case 3 -> { trn.eliminarTurno(); gestionarTurnos(); }
+            case 4 -> { trn.listarTurnos(agd.buscarIdAgenda(), LocalDate.now()); gestionarTurnos(); }
+            case 5 -> verHistoriaClinica();
+            case 0 -> menuAdmin(sesion);
+        }
     }
 
+    /**
+     * Muestra la opciones del perfil Médico.
+     * @param sesion Mantiene una sesión abierta.
+     */
     public static void menuMedico(Sesion sesion) {
         limpiarPantalla();
         String tratamiento = String.valueOf(sesion.obtenerSexo()).equals("M")? "Bienvenido, Dr. ": "Bienvenida, Dra. ";
@@ -548,7 +587,7 @@ public class Main{
                             "2. Ver Historia Cl\u00EDnica \n" +
                             "0. Cerrar Sesión");
         switch (seleccion()) {
-            case 1 -> verAgendaDiaria();
+            case 1 -> verAgendaDiaria(sesion);
             case 2 -> verHistoriaClinica();
             case 0 -> cerrarSesion();
         }
@@ -558,11 +597,8 @@ public class Main{
 
     }
 
-    private static void verAgendaDiaria() {
-    }
-
-
     public static void main(String[] args) {
+//        launch(args);
         bienvenida();
         menuInicio(sesion);
 

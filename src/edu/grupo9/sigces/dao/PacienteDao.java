@@ -1,6 +1,6 @@
 package edu.grupo9.sigces.dao;
 
-import edu.grupo9.sigces.Paciente;
+import edu.grupo9.sigces.objects.Paciente;
 
 import java.util.ArrayList;
 

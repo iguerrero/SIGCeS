@@ -1,6 +1,8 @@
 package edu.grupo9.sigces.dao;
 
 import edu.grupo9.sigces.*;
+import edu.grupo9.sigces.objects.Admin;
+import edu.grupo9.sigces.objects.Sesion;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -178,7 +180,7 @@ public class AdminDaoImpl extends SQLiteDB implements AdminDao {
                     "email = ?, " +
                     "fechaNac = ?, " +
                     "sexo = ?, " +
-                    "WHERE idMedico = ?");
+                    "WHERE idMedico = ?;");
             st.setString(1, admin.obtenerNombre());
             st.setString(2, admin.obtenerApellido());
             st.setInt(3, admin.obtenerDni());

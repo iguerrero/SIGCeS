@@ -103,9 +103,8 @@ public class SQLiteDB {
     }
 
     public static void agregarDatos() {
-        Statement statement = null;
         try {
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
             statement.executeUpdate("INSERT INTO admins (" +
                     "nombre, " +

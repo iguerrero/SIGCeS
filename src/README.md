@@ -50,9 +50,16 @@ Además, migramos los métodos a un patrón de diseño **DAO** (Data Access Object)
 - Se adjunta el paquete **threeten-extra-1.7.0.jar** que se utilizará en el manejo de turnos y agenda.
 - Se adjunta la herramienta **SQLiteStudio** para facilitar el trabajo con la base de datos fuera de la aplicación.
 
-### Estado del Proyecto:
+#### Estado del Proyecto:
 Hasta el momento, se encuentra funcional la gestión CRUD de Admins, Pacientes y Médicos.
 
 Por el momento, NO se encuentra funcional la gestión de turnos e historias clínicas.
 
 Debido a esto, el perfil <span style="color:cyan">**Médico**</span> no hace prácticamente nada, por lo cual se recomienda probar las funcionalidades del perfil <span style="color:cyan">**Administrador**</span>.
+
+### Acerca del TP N° 4
+
+Esta estapa es INDIVIDUAL
+
+Para la presente etapa, he importado el paquete <span style="color:cyan">**org.threeten.extra.interval**</span>.
+Dicho paquete permite comparar intervalos de tiempo, lo cula es muy conveniente a la hora de manejar turnos y agendas.

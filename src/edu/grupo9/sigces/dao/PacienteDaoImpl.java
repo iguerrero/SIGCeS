@@ -1,6 +1,6 @@
 package edu.grupo9.sigces.dao;
 
-import edu.grupo9.sigces.Paciente;
+import edu.grupo9.sigces.objects.Paciente;
 import edu.grupo9.sigces.SQLiteDB;
 
 import java.sql.Date;
@@ -214,14 +214,13 @@ public class PacienteDaoImpl extends SQLiteDB implements PacienteDao{
     public ArrayList<Paciente> buscarPacientePorNombre(String nombre, String apellido) {
         ArrayList<Paciente> pacientes = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        conectar();
-        ResultSet res = null;
         int id = 0;
         try {
+            conectar();
             PreparedStatement pct = connection.prepareStatement("SELECT * FROM pacientes WHERE nombre = ? AND apellido = ?");
             pct.setString(1, nombre);
             pct.setString(2, apellido);
-            res = pct.executeQuery();
+            ResultSet res = pct.executeQuery();
             while (res.next()) {
                 Paciente paciente = new Paciente(res.getString(2),
                         res.getString(3),
@@ -274,15 +273,30 @@ public class PacienteDaoImpl extends SQLiteDB implements PacienteDao{
     }
 
     public void imprimirPaciente(Paciente paciente) {
-        System.out.print(paciente.obtenerIdPaciente() + " | " +
-                paciente.obtenerNombre() + " | " +
-                paciente.obtenerApellido() + " | " +
-                paciente.obtenerDni() + " | " +
-                paciente.obtenerDomicilio() + " | " +
-                paciente.obtenerTelefono() + " | " +
-                paciente.obtenerEmail() + " | " +
-                paciente.obtenerFechaNac() + " | " +
-                paciente.obtenerSexo());
+        System.out.println("\033[36m-".repeat(80));
+        System.out.printf("\033[36m%-4s| %-20s| %-20s| %-9s| %-25s \033[0m%n",
+                "Id",
+                "Nombre",
+                "Apellido",
+                "DNI",
+                "Domicilio");
+        System.out.printf("%-4d| %-20s| %-20s| %-9d| %-25s %n",
+                paciente.obtenerIdPaciente(),
+                paciente.obtenerNombre(),
+                paciente.obtenerApellido(),
+                paciente.obtenerDni(),
+                paciente.obtenerDomicilio());
         System.out.println("");
+        System.out.printf("\033[36m    | %-12s| %-25s| %-12s| %-5s \033[0m%n",
+                "Teléfono",
+                "eMail",
+                "Fecha Nac.",
+                "Sexo");
+        System.out.printf("    | %-12s| %-25s| %-12s| %-5s %n",
+                paciente.obtenerTelefono(),
+                paciente.obtenerEmail(),
+                paciente.obtenerFechaNac(),
+                paciente.obtenerSexo());
+        System.out.println("\033[36m-\033[0m".repeat(80));
     }
 }

@@ -1,7 +1,7 @@
 package edu.grupo9.sigces.dao;
 
-import edu.grupo9.sigces.Admin;
-import edu.grupo9.sigces.Sesion;
+import edu.grupo9.sigces.objects.Admin;
+import edu.grupo9.sigces.objects.Sesion;
 
 import java.util.ArrayList;
 
