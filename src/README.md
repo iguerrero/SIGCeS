@@ -62,4 +62,13 @@ Debido a esto, el perfil <span style="color:cyan">**Médico**</span> no hace prác
 Esta estapa es INDIVIDUAL
 
 Para la presente etapa, he importado el paquete <span style="color:cyan">**org.threeten.extra.interval**</span>.
-Dicho paquete permite comparar intervalos de tiempo, lo cula es muy conveniente a la hora de manejar turnos y agendas.
+Dicho paquete permite comparar intervalos de tiempo, lo cual es muy conveniente a la hora de manejar turnos y agendas.
+
+#### Estado del Proyecto
+Lamentablemente, el proyecto NO ha podido ser finalizado debido a un bug en el que se perdieron dos días.
+La lógica perseguida para el manejo de agendas y turnos es la siguiente. Una agenda equivale a un día laboral.
+La agenda determina el intervalo de tiempo trabajable. Los turnos solamente pueden darse DENTRO de dicho intervalo.
+El paquete **Interval** posee métodos que permite comparar intervalos fácilmente: si un intervalo se encuentra dentro de otro,
+si se solapan, si son contínuos, etc.
+
+A pesar de no estar concluido, se ha cumplido con el resto de las consignas.
