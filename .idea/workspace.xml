@@ -5,36 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e3ac027-44e2-4978-9a11-efabf88d3995" name="Changes" comment="Código para entrega TP3">
-      <change afterPath="$PROJECT_DIR$/POO_2022_TP3_SIGCeS.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elementos adicionales/sqlite-jdbc-3.36.0.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elementos adicionales/sqlitestudio-3.3.3.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elementos adicionales/threeten-extra-1.7.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sigces.db-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Agenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/HistoriaClinica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Medico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Medico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/SQLiteDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Sesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Sesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/objects/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AdminDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/AgendaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/PacienteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/grupo9/sigces/dao/TurnoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sigces.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/sigces.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654782849167</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Código para entrega TP3">
+      <created>1656971336485</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1656971336485</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,8 +334,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/edu/grupo9/sigces/dao/MedicoDaoImpl.java</url>
-          <line>350</line>
-          <option name="timeStamp" value="31" />
+          <line>352</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

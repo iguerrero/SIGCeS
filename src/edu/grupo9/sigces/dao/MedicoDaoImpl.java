@@ -269,7 +269,7 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
                             res.getString(6),
                             res.getString(7),
                             res.getString(8),
-                            (LocalDate) res.getObject(9),
+                            res.getDate(9).toLocalDate(),
                             res.getString(10),
                             res.getString(11),
                             res.getString(12),
@@ -323,7 +323,7 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
                             res.getString(6),
                             res.getString(7),
                             res.getString(8),
-                            (LocalDate) res.getObject(9),
+                            res.getDate(9).toLocalDate(),
                             res.getString(10),
                             res.getString(11),
                             res.getString(12),
@@ -345,11 +345,12 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
     public Medico buscarMedicoPorId(int id) {
         try {
             conectar();
+            ResultSet res;
             PreparedStatement st = connection.prepareStatement("SELECT * FROM medicos WHERE idMedico = ?");
             st.setInt(1, id);
-            ResultSet res = st.executeQuery();
+            res = st.executeQuery();
 
-            if (res != null) {
+            if (res.next()) {
                 medico = new Medico(res.getInt(1),
                         res.getString(2),
                         res.getString(3),
@@ -358,7 +359,7 @@ public class MedicoDaoImpl extends SQLiteDB implements MedicoDao {
                         res.getString(6),
                         res.getString(7),
                         res.getString(8),
-                        (LocalDate) res.getObject(9),
+                        res.getDate(9).toLocalDate(),
                         res.getString(10),
                         res.getString(11),
                         res.getString(12),
